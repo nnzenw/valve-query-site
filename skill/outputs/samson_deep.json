@@ -1,0 +1,15 @@
+{
+  "brand": {
+    "name": {
+      "en": "Samson"
+    },
+    "website": "https://www.samson.de",
+    "description": "",
+    "product_focus": [],
+    "brand_id": "samson-XX-001",
+    "data_quality": "medium",
+    "crawl_date": "2026-06-03T09:11:03.568831+00:00",
+    "crawl_status": "success",
+    "products": []
+  }
+}

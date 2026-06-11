@@ -1,0 +1,15 @@
+{
+  "brand": {
+    "name": {
+      "en": "Nikkiso"
+    },
+    "website": "https://www.nikkiso.co.jp",
+    "description": "",
+    "product_focus": [],
+    "brand_id": "nikkiso-XX-001",
+    "data_quality": "medium",
+    "crawl_date": "2026-06-03T09:10:31.325720+00:00",
+    "crawl_status": "success",
+    "products": []
+  }
+}

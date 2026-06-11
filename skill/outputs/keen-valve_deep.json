@@ -1,0 +1,15 @@
+{
+  "brand": {
+    "name": {
+      "en": "Keen Valve"
+    },
+    "website": "https://www.keenvalve.com",
+    "description": "",
+    "product_focus": [],
+    "brand_id": "keen-valve-XX-001",
+    "data_quality": "medium",
+    "crawl_date": "2026-06-03T09:11:12.957249+00:00",
+    "crawl_status": "success",
+    "products": []
+  }
+}

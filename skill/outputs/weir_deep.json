@@ -1,0 +1,15 @@
+{
+  "brand": {
+    "name": {
+      "en": "Weir"
+    },
+    "website": "https://www.weir.com",
+    "description": "",
+    "product_focus": [],
+    "brand_id": "weir-XX-001",
+    "data_quality": "medium",
+    "crawl_date": "2026-06-03T09:11:32.717557+00:00",
+    "crawl_status": "success",
+    "products": []
+  }
+}

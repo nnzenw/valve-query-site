@@ -1,0 +1,31 @@
+{
+  "brand": {
+    "name": {
+      "en": "NACHI (不二越)"
+    },
+    "website": "https://www.nachi.com/",
+    "description": "",
+    "product_focus": [],
+    "brand_id": "nachi-(不二越)-XX-001",
+    "data_quality": "medium",
+    "crawl_date": "2026-06-03T09:10:20.595936+00:00",
+    "crawl_status": "success",
+    "products": [
+      {
+        "url": "https://www.nachiamerica.com/hydraulics/products/",
+        "name": {
+          "en": "Nachi Hydraulics: Quality Hydraulic Pumps & Valves for Efficiency | Nachi America"
+        },
+        "specifications": {
+          "Robotics Downloads": "Files:38",
+          "Cutting Tools Downloads": "Files:25",
+          "Gear Tools Downloads": "Files:19",
+          "Machine Tools Downloads": "Files:13",
+          "Bearings Downloads": "Files:35",
+          "Hydraulics Downloads": "Files:30",
+          "Specialty Steel Downloads": "Files:12"
+        }
+      }
+    ]
+  }
+}

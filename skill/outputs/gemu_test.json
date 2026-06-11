@@ -1,0 +1,96 @@
+{
+  "brand": {
+    "name": {
+      "en": "盖米阀门（中国）有限公司"
+    },
+    "website": "https://www.gemu-group.com",
+    "description": "盖米集团1964年诞生于德国，是知名的阀门、测量及控制系统制造商之一。盖米一直关注客户的需求，致力于阀门的创新和实际应用，提供个性化的系统解决方案和服务。",
+    "product_focus": [
+      "Diaphragm Valve",
+      "Ball Valve",
+      "Butterfly Valve",
+      "Control Valve"
+    ],
+    "brand_id": "gemu-XX-001",
+    "data_quality": "high",
+    "crawl_date": "2026-06-03T05:37:01.307277+00:00",
+    "crawl_status": "success",
+    "products": [
+      {
+        "url": "https://www.gemu-group.com/en/products/",
+        "name": {
+          "en": "Seamless solutions that adapt to your needs - GEMÜ"
+        },
+        "specifications": {},
+        "images": [
+          "https:/images/gemu-logo.svg",
+          "https://gemu-groupprod-media.e-spirit.cloud/aeaf2f46-2394-4b7f-8d0d-e343c6ff75b6/media/gemue-group/navigation/1848x2464-pupsit-mann-und-frau-xs-16-9.jpg",
+          "https://gemu-groupprod-media.e-spirit.cloud/aeaf2f46-2394-4b7f-8d0d-e343c6ff75b6/media/gemue-group/navigation/1848x2464-pupsit-mann-und-frau-xs-16-9.jpg",
+          "https://gemu-groupprod-media.e-spirit.cloud/aeaf2f46-2394-4b7f-8d0d-e343c6ff75b6/media/gemue-group/produkte/produktfamilien/1848x2464-produktfamilien-uebersicht-2-xs-3-4.jpg",
+          "https://gemu-groupprod-media.e-spirit.cloud/aeaf2f46-2394-4b7f-8d0d-e343c6ff75b6/media/gemue-group/produkte/produktfamilien/1848x2464-produktfamilien-uebersicht-24-xs-3-4.jpg"
+        ],
+        "datasheet_pdf": null
+      },
+      {
+        "url": "https://www.gemu-group.com/en/products/valve-technology/",
+        "name": {
+          "en": "Valve technology"
+        },
+        "specifications": {},
+        "images": [
+          "https:/images/gemu-logo.svg",
+          "https://gemu-groupprod-media.e-spirit.cloud/aeaf2f46-2394-4b7f-8d0d-e343c6ff75b6/media/gemue-group/navigation/1848x2464-pupsit-mann-und-frau-xs-16-9.jpg",
+          "https://gemu-groupprod-media.e-spirit.cloud/aeaf2f46-2394-4b7f-8d0d-e343c6ff75b6/media/gemue-group/navigation/1848x2464-pupsit-mann-und-frau-xs-16-9.jpg",
+          "https:/media/e2/72/99/1779177514/Valve-technology-product-family-web-gemue-2025-11-27.jpg",
+          "https:/media/g0/ee/5a/1776407067/Diaphragm-valves-product-group-web-gemue-2026-04-16.png"
+        ],
+        "datasheet_pdf": null
+      },
+      {
+        "url": "https://www.gemu-group.com/en/products/valve-technology/diaphragm-valves/",
+        "name": {
+          "en": "Diaphragm valves"
+        },
+        "specifications": {},
+        "images": [
+          "https:/images/gemu-logo.svg",
+          "https://gemu-groupprod-media.e-spirit.cloud/aeaf2f46-2394-4b7f-8d0d-e343c6ff75b6/media/gemue-group/navigation/1848x2464-pupsit-mann-und-frau-xs-16-9.jpg",
+          "https://gemu-groupprod-media.e-spirit.cloud/aeaf2f46-2394-4b7f-8d0d-e343c6ff75b6/media/gemue-group/navigation/1848x2464-pupsit-mann-und-frau-xs-16-9.jpg",
+          "https:/media/g0/ee/5a/1776407067/Diaphragm-valves-product-group-web-gemue-2026-04-16.png",
+          "https:/media/a6/c1/b2/1776765718/Motorized-diaphragm-valve-629-product-type-gemue-2025-12-03.png"
+        ],
+        "datasheet_pdf": null
+      },
+      {
+        "url": "https://www.gemu-group.com/en/products/valve-technology/seat-valves/",
+        "name": {
+          "en": "Seat valves"
+        },
+        "specifications": {},
+        "images": [
+          "https:/images/gemu-logo.svg",
+          "https://gemu-groupprod-media.e-spirit.cloud/aeaf2f46-2394-4b7f-8d0d-e343c6ff75b6/media/gemue-group/navigation/1848x2464-pupsit-mann-und-frau-xs-16-9.jpg",
+          "https://gemu-groupprod-media.e-spirit.cloud/aeaf2f46-2394-4b7f-8d0d-e343c6ff75b6/media/gemue-group/navigation/1848x2464-pupsit-mann-und-frau-xs-16-9.jpg",
+          "https:/media/16/96/e3/1779777407/Seat-valves-product-group-web-gemue-2026-04-16.png",
+          "https:/media/17/9f/0e/1774886430/Motorized-control-valve-R563-product-type-gemue-2025-12-03.png"
+        ],
+        "datasheet_pdf": null
+      },
+      {
+        "url": "https://www.gemu-group.com/en/products/valve-technology/diaphragm-seat-valves/",
+        "name": {
+          "en": "Diaphragm seat valves"
+        },
+        "specifications": {},
+        "images": [
+          "https:/images/gemu-logo.svg",
+          "https://gemu-groupprod-media.e-spirit.cloud/aeaf2f46-2394-4b7f-8d0d-e343c6ff75b6/media/gemue-group/navigation/1848x2464-pupsit-mann-und-frau-xs-16-9.jpg",
+          "https://gemu-groupprod-media.e-spirit.cloud/aeaf2f46-2394-4b7f-8d0d-e343c6ff75b6/media/gemue-group/navigation/1848x2464-pupsit-mann-und-frau-xs-16-9.jpg",
+          "https:/media/03/2a/d3/1774256540/Diaphragm-seat-valves-product-group-web-gemue-2026-03-19.png",
+          "https:/media/ba/63/d0/1774360858/Aseptic-control-valve-567-product-type-gemue-2025-12-04.png"
+        ],
+        "datasheet_pdf": null
+      }
+    ]
+  }
+}

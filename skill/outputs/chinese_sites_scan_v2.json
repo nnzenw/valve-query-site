@@ -1,0 +1,28 @@
+[
+  {
+    "url": "https://www.china-valve.com/",
+    "title": "{{data.extends.Company}}",
+    "product_links": [
+      "https://www.china-valve.com/book.html",
+      "https://www.china-valve.com/project.html",
+      "https://www.china-valve.com/support.html",
+      "https://www.china-valve.com/download.html",
+      "https://www.china-valve.com/index.html"
+    ],
+    "product_count": 9,
+    "tables_found": 0
+  },
+  {
+    "url": "https://www.chinavalvesupplier.com/",
+    "title": "Китайские производители шаровых кранов, Поставщики обратных клапанов, Завод латунных фитингов - Taizhou FIREWIND Valve Co., Ltd",
+    "product_links": [
+      "https://www.chinavalvesupplier.com/check-valve/brass-spring-check-valve.html",
+      "https://www.chinavalvesupplier.com/angle-valve/1-2-3-4-inch-polished-zinc-alloy-angle-valve.html",
+      "https://www.chinavalvesupplier.com/gas-valve/brass-cross-shut-off-gas-valve.html",
+      "https://www.chinavalvesupplier.com/news/the-difference-between-bellows-stop-valve-and-73214655.html",
+      "https://www.chinavalvesupplier.com/check-valve/brass-check-valves.html"
+    ],
+    "product_count": 33,
+    "tables_found": 3
+  }
+]

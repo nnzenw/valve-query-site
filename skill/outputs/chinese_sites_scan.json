@@ -1,0 +1,102 @@
+[
+  {
+    "brand": "纽威阀门",
+    "url": "https://www.neway.com.cn/",
+    "status": 200,
+    "size_kb": 81,
+    "product_links": 4,
+    "tables": 0,
+    "sample_links": [
+      [
+        "产品",
+        "https://www.neway.com.cn/25/"
+      ],
+      [
+        "产品",
+        "https://www.neway.com.cn/25/"
+      ],
+      [
+        "产品",
+        "https://www.neway.com.cn/25/"
+      ],
+      [
+        "产品",
+        "https://www.neway.com.cn/25/"
+      ]
+    ]
+  },
+  {
+    "brand": "正泰阀门",
+    "url": "https://www.chintvalve.com/",
+    "error": "HTTPSConnectionPool(host='www.chintvalve.com', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"HTTPSConnection(host='www.chintvalve.com', port=443): Failed to resolve 'www.chintvalve.com' ([Errno 11001] getaddrinfo failed)\"))"
+  },
+  {
+    "brand": "中核苏阀",
+    "url": "https://www.chinasufa.com/",
+    "status": 412,
+    "size_kb": 29,
+    "product_links": 0,
+    "tables": 0,
+    "sample_links": []
+  },
+  {
+    "brand": "伯特利阀门",
+    "url": "https://www.betalvalve.com/",
+    "error": "HTTPSConnectionPool(host='www.betalvalve.com', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"HTTPSConnection(host='www.betalvalve.com', port=443): Failed to resolve 'www.betalvalve.com' ([Errno 11001] getaddrinfo failed)\"))"
+  },
+  {
+    "brand": "良工阀门",
+    "url": "https://www.lianggongvalve.com/",
+    "error": "HTTPSConnectionPool(host='www.lianggongvalve.com', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"HTTPSConnection(host='www.lianggongvalve.com', port=443): Failed to resolve 'www.lianggongvalve.com' ([Errno 11002] getaddrinfo failed)\"))"
+  },
+  {
+    "brand": "远大阀门",
+    "url": "https://www.yuanda-valve.com/",
+    "error": "HTTPSConnectionPool(host='www.yuanda-valve.com', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"HTTPSConnection(host='www.yuanda-valve.com', port=443): Failed to resolve 'www.yuanda-valve.com' ([Errno 11001] getaddrinfo failed)\"))"
+  },
+  {
+    "brand": "超达阀门",
+    "url": "https://www.chaodavalve.com/",
+    "error": "HTTPSConnectionPool(host='www.chaodavalve.com', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<HTTPSConnection(host='www.chaodavalve.com', port=443) at 0x25c1302c4d0>, 'Connection to www.chaodavalve.com timed out. (connect timeout=15)'))"
+  },
+  {
+    "brand": "方正阀门",
+    "url": "https://www.fangzhengvalve.com/",
+    "error": "HTTPSConnectionPool(host='www.fangzhengvalve.com', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"HTTPSConnection(host='www.fangzhengvalve.com', port=443): Failed to resolve 'www.fangzhengvalve.com' ([Errno 11001] getaddrinfo failed)\"))"
+  },
+  {
+    "brand": "华东阀门",
+    "url": "https://www.hdfavalve.com/",
+    "error": "HTTPSConnectionPool(host='www.hdfavalve.com', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"HTTPSConnection(host='www.hdfavalve.com', port=443): Failed to resolve 'www.hdfavalve.com' ([Errno 11001] getaddrinfo failed)\"))"
+  },
+  {
+    "brand": "精工阀门",
+    "url": "https://www.jinggongvalve.com/",
+    "error": "HTTPSConnectionPool(host='www.jinggongvalve.com', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: certificate has expired (_ssl.c:1016)')))"
+  },
+  {
+    "brand": "开维喜阀门",
+    "url": "https://www.kwvvalve.com/",
+    "error": "HTTPSConnectionPool(host='www.kwvvalve.com', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"HTTPSConnection(host='www.kwvvalve.com', port=443): Failed to resolve 'www.kwvvalve.com' ([Errno 11001] getaddrinfo failed)\"))"
+  },
+  {
+    "brand": "神通阀门",
+    "url": "https://www.shentongvalve.com/",
+    "error": "HTTPSConnectionPool(host='www.shentongvalve.com', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"HTTPSConnection(host='www.shentongvalve.com', port=443): Failed to resolve 'www.shentongvalve.com' ([Errno 11001] getaddrinfo failed)\"))"
+  },
+  {
+    "brand": "江苏大元阀门",
+    "url": "https://www.dayuanvalve.com/",
+    "error": "HTTPSConnectionPool(host='www.dayuanvalve.com', port=443): Read timed out. (read timeout=15)"
+  },
+  {
+    "brand": "杭州阀阀",
+    "url": "https://www.hfff.com/",
+    "error": "HTTPSConnectionPool(host='www.hfff.com', port=443): Max retries exceeded with url: / (Caused by NewConnectionError(\"HTTPSConnection(host='www.hfff.com', port=443): Failed to establish a new connection: [WinError 10061] 由于目标计算机积极拒绝，无法连接。\"))"
+  },
+  {
+    "brand": "上海自动化阀门",
+    "url": "https://www.shzdkf.com/",
+    "error": "HTTPSConnectionPool(host='www.shzdkf.com', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"HTTPSConnection(host='www.shzdkf.com', port=443): Failed to resolve 'www.shzdkf.com' ([Errno 11001] getaddrinfo failed)\"))"
+  }
+]

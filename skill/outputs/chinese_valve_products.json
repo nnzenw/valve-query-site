@@ -1,0 +1,165 @@
+{
+  "metadata": {
+    "source": "Chinese valve manufacturer sites",
+    "date": "2026-06-03",
+    "brands_scraped": [
+      "上海力典阀业",
+      "远大阀门"
+    ],
+    "total_products": 8
+  },
+  "products": [
+    {
+      "url": "https://www.ydvalve.com/product/tap/yd912-72.html",
+      "name": {
+        "en": "OEM Custom YD912 Tap Manufacturers Company - Zhejiang Yunda Fluid Intelligent Control Co.,Ltd."
+      },
+      "specifications": {
+        "ITEM No.": "SIZE",
+        "YD912": "1/2\"x3/4\"",
+        "YD913": "1/2\"x3/4\"x3/4\"",
+        "YD940": "1/2\"x150mm",
+        "1/2\"x100mm": "6",
+        "YD941": "1/2\"x3/4\"",
+        "YD909": "1/2\"x3/4\"",
+        "YD902": "1/2\"x3/4\""
+      }
+    },
+    {
+      "url": "https://www.ydvalve.com/product/mini-ball-valves/mini101-71.html",
+      "name": {
+        "en": "OEM Custom MINI-101 Mini Ball Valves Manufacturers Company - Zhejiang Yunda Fluid Intelligent Control Co.,Ltd."
+      },
+      "specifications": {
+        "ITEM No.": "SIZE",
+        "MINI-101": "1/4\"Mx1/4\"M",
+        "3/8\"Mx3/8\"M": "25",
+        "1/2\"Mx1/2\"M": "20",
+        "3/4\"Mx3/4\"M": "12",
+        "MINI-102": "1/4\"Mx1/4\"F",
+        "3/8\"Mx3/8\"F": "25",
+        "1/2\"Mx1/2\"F": "20",
+        "3/4\"Mx3/4\"F": "12",
+        "MINI-103": "1/4\"Fx1/4\"F",
+        "3/8\"Fx3/8\"F": "25",
+        "1/2\"Fx1/2\"F": "20",
+        "3/4\"Fx3/4\"F": "12"
+      }
+    },
+    {
+      "url": "https://www.ydvalve.com/product/radiator-valves/yd812-70.html",
+      "name": {
+        "en": "OEM Custom YD812 Radiator Valves Manufacturers Company - Zhejiang Yunda Fluid Intelligent Control Co.,Ltd."
+      },
+      "specifications": {
+        "ITEM No.": "SIZE",
+        "YD812": "1/2\"",
+        "YD813": "1/2\"",
+        "YD814": "1/2\"",
+        "YD815": "1/2\""
+      }
+    },
+    {
+      "url": "https://www.ydvalve.com/product/ceramic-valves/yd532-69.html",
+      "name": {
+        "en": "OEM Custom YD532 Ceramic Valves Manufacturers Company - Zhejiang Yunda Fluid Intelligent Control Co.,Ltd."
+      },
+      "specifications": {
+        "ITEM No.": "SIZE",
+        "YD532": "1/2\"x1/2\"",
+        "YD533": "1/2\"x1/2\"",
+        "YD534": "1/2\"x1/2\""
+      }
+    },
+    {
+      "url": "https://www.ydvalve.com/product/ceramic-valves/ceramic-valvesyd501-68.html",
+      "name": {
+        "en": "OEM Custom Ceramic Valves-YD501 Manufacturers Company - Zhejiang Yunda Fluid Intelligent Control Co.,Ltd."
+      },
+      "specifications": {
+        "ITEM No.": "SIZE",
+        "YD501": "1/2\"x3/8\"",
+        "1/2\"x1/2\"": "1",
+        "1/2\"x3/4\"": "1",
+        "NO.": "Name",
+        "1": "Rosette",
+        "2": "Body",
+        "3": "O-Ring",
+        "4": "Ceramic Cartridge",
+        "5": "Handle"
+      }
+    },
+    {
+      "url": "https://www.ydvalve.com/product/angle-ball-valves/yd401-67.html",
+      "name": {
+        "en": "OEM Custom YD401 Angle Ball Valves Manufacturers Company - Zhejiang Yunda Fluid Intelligent Control Co.,Ltd."
+      },
+      "specifications": {
+        "ITEM No.": "SIZE",
+        "YD401": "1/2\"x1/2\"",
+        "1/2\"x3/4\"": "20",
+        "YD401 with check volve": "1/2\"x3/4\"",
+        "NO.": "Name",
+        "1": "Body",
+        "2": "Stem",
+        "3": "O-Ring",
+        "4": "Handle",
+        "5": "Handle Screw",
+        "6": "Ball Seat",
+        "7": "Ball",
+        "8": "Adapter",
+        "9": "Rosette"
+      }
+    },
+    {
+      "url": "https://www.ydvalve.com/product/angle-stop-valves/yd316-65.html",
+      "name": {
+        "en": "OEM Custom YD316 Angle Valves With Filter Manufacturers Company - Zhejiang Yunda Fluid Intelligent Control Co.,Ltd."
+      },
+      "specifications": {
+        "ITEM No.": "SIZE",
+        "YD316": "1/2\"Mx3/4\"Mx3/8\"M",
+        "NO.": "Name",
+        "1": "Rosette",
+        "2": "Body",
+        "3": "Washer",
+        "4": "Washer Plate",
+        "5": "O-Ring",
+        "6": "Cap",
+        "7": "Circlip",
+        "8": "Stem",
+        "9": "O-Ring",
+        "10": "Handle",
+        "11": "Handle Screw",
+        "12": "Plastic Cap",
+        "13": "Gasket",
+        "14": "Stem",
+        "15": "O-Ring",
+        "16": "Packing Nut",
+        "17": "Handle",
+        "18": "Bolt"
+      }
+    },
+    {
+      "url": "https://www.ydvalve.com/product/angle-stop-valves/yd301b-64.html",
+      "name": {
+        "en": "OEM Custom YD301B Angle Valves With Filter Manufacturers Company - Zhejiang Yunda Fluid Intelligent Control Co.,Ltd."
+      },
+      "specifications": {
+        "ITEM No.": "SIZE",
+        "YD301B": "1/2\"x3/8\"",
+        "1/2\"x3/4\"": "2",
+        "1/2\"x1/2\"": "2",
+        "NO.": "Name",
+        "1": "Rosette",
+        "2": "Body",
+        "3": "Gasket",
+        "4": "O-Ring",
+        "5": "Stem",
+        "6": "Packing Nut",
+        "7": "Handle",
+        "8": "Handle Screw"
+      }
+    }
+  ]
+}

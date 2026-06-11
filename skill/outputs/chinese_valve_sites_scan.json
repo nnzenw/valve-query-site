@@ -1,0 +1,34 @@
+[
+  {
+    "name": "浙江高亿阀门",
+    "url": "https://www.zjgyfm.com/",
+    "status": 403,
+    "tables": 0,
+    "dls": 0,
+    "product_count": 0
+  },
+  {
+    "name": "浙江华高阀门",
+    "url": "https://www.hgfm.net/",
+    "status": 200,
+    "tables": 0,
+    "dls": 0,
+    "product_count": 0
+  },
+  {
+    "name": "浙江正济阀门",
+    "url": "https://www.zhengjifm.com/",
+    "status": 200,
+    "tables": 0,
+    "dls": 0,
+    "product_count": 0
+  },
+  {
+    "name": "浙江良工阀门",
+    "url": "https://www.zjlianggong.com/",
+    "status": 200,
+    "tables": 0,
+    "dls": 0,
+    "product_count": 27
+  }
+]

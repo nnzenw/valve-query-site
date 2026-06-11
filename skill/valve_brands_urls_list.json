@@ -1,0 +1,352 @@
+{
+  "version": "1.0",
+  "created": "2026-06-03",
+  "description": "待爬取阀门品牌完整URL列表",
+  "tier_1_high_priority": [
+    {
+      "rank": 1,
+      "brand": "GEMU",
+      "country": "DE",
+      "website": "https://www.gemu-group.com",
+      "product_url": "https://www.gemu-group.com/en-gb/products/valve-technology",
+      "focus": [
+        "Diaphragm Valve",
+        "Ball Valve"
+      ],
+      "priority": "high"
+    },
+    {
+      "rank": 2,
+      "brand": "ARI",
+      "country": "DE",
+      "website": "https://www.ari.de",
+      "product_url": "https://www.ari.de/en/products/",
+      "focus": [
+        "Control Valve",
+        "Steam Trap"
+      ],
+      "priority": "high"
+    },
+    {
+      "rank": 3,
+      "brand": "Fisher/Emerson",
+      "country": "US",
+      "website": "https://www.emerson.com/brands/fisher",
+      "product_url": "https://www.emerson.com/en-us/catalog",
+      "focus": [
+        "Control Valve"
+      ],
+      "priority": "high"
+    },
+    {
+      "rank": 4,
+      "brand": "Belimo",
+      "country": "CH",
+      "website": "https://www.belimo.com",
+      "product_url": "https://www.belimo.com/mam/mybelimo/products",
+      "focus": [
+        "Actuators",
+        "HVAC Valves"
+      ],
+      "priority": "high"
+    },
+    {
+      "rank": 5,
+      "brand": "Flowserve",
+      "country": "US",
+      "website": "https://www.flowserve.com/",
+      "product_url": "https://www.flowserve.com/products/products-catalog/?brandType=352",
+      "focus": [
+        "Control Valve",
+        "Isolation Valve"
+      ],
+      "priority": "high"
+    },
+    {
+      "rank": 6,
+      "brand": "Cameron/SLB",
+      "country": "US",
+      "website": "https://www.slb.com/cameron",
+      "product_url": "https://www.slb.com/products-and-innovations/library/cameron-valves",
+      "focus": [
+        "High Pressure Ball Valve"
+      ],
+      "priority": "high"
+    },
+    {
+      "rank": 7,
+      "brand": "Velan",
+      "country": "CA",
+      "website": "https://www.velan.com/",
+      "product_url": "https://velan.com/products/",
+      "focus": [
+        "High-End Butterfly Valve"
+      ],
+      "priority": "high"
+    },
+    {
+      "rank": 8,
+      "brand": "Watts",
+      "country": "US",
+      "website": "https://www.watts.com",
+      "product_url": "https://www.watts.com/products",
+      "focus": [
+        "Steam Trap",
+        "Check Valve"
+      ],
+      "priority": "high"
+    },
+    {
+      "rank": 9,
+      "brand": "NACHI (不二越)",
+      "country": "JP",
+      "website": "https://www.nachi.com/",
+      "product_url": "https://www.nachiamerica.com/hydraulics/products/",
+      "focus": [
+        "Hydraulic Valve"
+      ],
+      "priority": "high"
+    },
+    {
+      "rank": 10,
+      "brand": "ARI Armaturen",
+      "country": "DE",
+      "website": "https://www.ari-armaturen.com/",
+      "product_url": "https://www.ari-armaturen.com/en/markets-and-applications/industry",
+      "focus": [
+        "Control Valve",
+        "Steam Trap"
+      ],
+      "priority": "high"
+    }
+  ],
+  "tier_2_medium_priority": [
+    {
+      "rank": 11,
+      "brand": "Yoshitake",
+      "country": "JP",
+      "website": "https://www.yoshitake.co.jp",
+      "product_url": "https://www.yoshitake.co.jp/en/product/",
+      "focus": [
+        "Steam Trap",
+        "Steam Control Valve"
+      ],
+      "priority": "medium"
+    },
+    {
+      "rank": 12,
+      "brand": "TOKU",
+      "country": "JP",
+      "website": "https://www.tokuyo.co.jp",
+      "product_url": "https://www.tokuyo.co.jp/en/product/",
+      "focus": [
+        "High-End Ball Valve"
+      ],
+      "priority": "medium"
+    },
+    {
+      "rank": 13,
+      "brand": "Nikkiso",
+      "country": "JP",
+      "website": "https://www.nikkiso.co.jp",
+      "product_url": "https://www.nikkiso.co.jp/english/product/index.html",
+      "focus": [
+        "High-Pressure Pump & Valve"
+      ],
+      "priority": "medium"
+    },
+    {
+      "rank": 14,
+      "brand": "AVK",
+      "country": "DK",
+      "website": "https://www.avk-avk.dk",
+      "product_url": "https://www.avk-avk.dk/products/",
+      "focus": [
+        "Waterworks Valve"
+      ],
+      "priority": "medium"
+    },
+    {
+      "rank": 15,
+      "brand": "Bürkert",
+      "country": "DE",
+      "website": "https://www.burkert.com",
+      "product_url": "https://www.burkert.com/en-us/products",
+      "focus": [
+        "Solenoid Valve",
+        "Process Valve"
+      ],
+      "priority": "medium"
+    },
+    {
+      "rank": 16,
+      "brand": "Samson",
+      "country": "DE",
+      "website": "https://www.samson.de",
+      "product_url": "https://www.samson.de/en/product-range",
+      "focus": [
+        "Control Valve",
+        "Actuator"
+      ],
+      "priority": "medium"
+    },
+    {
+      "rank": 17,
+      "brand": "Parker Hannifin",
+      "country": "US",
+      "website": "https://www.parker.com/hydraulics",
+      "product_url": "https://www.parker.com/hydraulics-systems-worldwide/en-us/products.html",
+      "focus": [
+        "Hydraulic Valve"
+      ],
+      "priority": "medium"
+    },
+    {
+      "rank": 18,
+      "brand": "Armstrong",
+      "country": "US",
+      "website": "https://www.armstronginternational.com",
+      "product_url": "https://www.armstronginternational.com/products/",
+      "focus": [
+        "Steam Trap"
+      ],
+      "priority": "medium"
+    },
+    {
+      "rank": 19,
+      "brand": "Spirax Sarco",
+      "country": "UK",
+      "website": "https://www.spiraxsarco.com",
+      "product_url": "https://www.spiraxsarco.com/en-us/products",
+      "focus": [
+        "Steam System Valve"
+      ],
+      "priority": "medium"
+    },
+    {
+      "rank": 20,
+      "brand": "Mankenberg",
+      "country": "DE",
+      "website": "https://www.mankenberg.com",
+      "product_url": "https://www.mankenberg.com/products/",
+      "focus": [
+        "Steam Trap",
+        "Safety Valve"
+      ],
+      "priority": "medium"
+    }
+  ],
+  "tier_3_supplement": [
+    {
+      "rank": 21,
+      "brand": "Neway (纽威)",
+      "country": "CN",
+      "website": "https://www.newayvalve.com",
+      "product_url": "https://www.newayvalve.com/products.html",
+      "focus": [
+        "Full Series"
+      ],
+      "priority": "low"
+    },
+    {
+      "rank": 22,
+      "brand": "Zhongvalve (中阀)",
+      "country": "CN",
+      "website": "https://www.zhongvalve.com",
+      "product_url": "https://www.zhongvalve.com/products/",
+      "focus": [
+        "Full Series"
+      ],
+      "priority": "low"
+    },
+    {
+      "rank": 23,
+      "brand": "3D Valve",
+      "country": "CN",
+      "website": "https://www.3dvalve.com",
+      "product_url": "https://www.3dvalve.com/products/",
+      "focus": [
+        "Ball Valve",
+        "Butterfly Valve"
+      ],
+      "priority": "low"
+    },
+    {
+      "rank": 24,
+      "brand": "DomBor",
+      "country": "CN",
+      "website": "https://www.dombor.com",
+      "product_url": "https://www.dombor.com/products/",
+      "focus": [
+        "Full Series"
+      ],
+      "priority": "low"
+    },
+    {
+      "rank": 25,
+      "brand": "Keen Valve",
+      "country": "US",
+      "website": "https://www.keenvalve.com",
+      "product_url": "https://www.keenvalve.com/products/",
+      "focus": [
+        "Full Series"
+      ],
+      "priority": "low"
+    },
+    {
+      "rank": 26,
+      "brand": "Crane",
+      "country": "US",
+      "website": "https://www.crane.co",
+      "product_url": "https://www.crane.co/products/",
+      "focus": [
+        "Full Series"
+      ],
+      "priority": "low"
+    },
+    {
+      "rank": 27,
+      "brand": "Chemett",
+      "country": "US",
+      "website": "https://www.chemett.com",
+      "product_url": "https://www.chemett.com/products/",
+      "focus": [
+        "Fire Suppression"
+      ],
+      "priority": "low"
+    },
+    {
+      "rank": 28,
+      "brand": "Weir",
+      "country": "GB",
+      "website": "https://www.weir.com",
+      "product_url": "https://www.weir.com/products/",
+      "focus": [
+        "Mining Valve"
+      ],
+      "priority": "low"
+    },
+    {
+      "rank": 29,
+      "brand": "Kurita",
+      "country": "JP",
+      "website": "https://www.kurita.co.jp",
+      "product_url": "https://www.kurita.co.jp/english/products/",
+      "focus": [
+        "Water Treatment Valve"
+      ],
+      "priority": "low"
+    },
+    {
+      "rank": 30,
+      "brand": "NACHI",
+      "country": "JP",
+      "website": "https://www.nachi.co.jp",
+      "product_url": "https://www.nachi.co.jp/english/products/index.html",
+      "focus": [
+        "Hydraulic Valve"
+      ],
+      "priority": "low"
+    }
+  ]
+}
