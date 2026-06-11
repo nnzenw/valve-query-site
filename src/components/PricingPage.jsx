@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { X, Check, Zap, ShoppingCart, Loader, ExternalLink, Building } from 'lucide-react'
+import { X, Check, Zap, ShoppingCart, Loader, ExternalLink } from 'lucide-react'
 import { toast } from 'react-hot-toast'
 import { PLANS, SUPPLIER_PLANS, useSubscription } from '../lib/SubscriptionContext'
 
@@ -139,7 +139,7 @@ export default function PricingPage({ onClose, user }) {
           <div>
             <h2 className="text-2xl font-bold text-gray-900">Choose Plan</h2>
             <p className="text-sm text-gray-500 mt-1">
-              {tab === 'user' ? 'Subscribe as needed, cancel anytime' : 'Get found by more buyers'}
+              Subscribe as needed, cancel anytime
             </p>
           </div>
           <button onClick={onClose} className="p-2 hover:bg-gray-100 rounded-lg" aria-label="Close pricing">
