@@ -78,12 +78,24 @@ export async function onRequest(context: { request: Request; env: Env }) {
     switch (event.type) {
       case 'checkout.completed': {
         const checkout = event.data
-        const userId = checkout.metadata?.userId
-        const planId = checkout.metadata?.planId
-        const customerId = checkout.customer_id
+        const customerEmail = checkout.customer_email || checkout.email
         const subscriptionId = checkout.subscription_id
 
-        if (userId && planId) {
+        let userId: string | null = null
+        if (customerEmail) {
+          const userRes = await fetch(
+            `${supabaseUrl}/auth/v1/admin/users?email=${encodeURIComponent(customerEmail)}`,
+            { headers: { ...headers, 'Authorization': `Bearer ${supabaseKey}` } }
+          )
+          if (userRes.ok) {
+            const users = await userRes.json()
+            if (users.length > 0) {
+              userId = users[0].id
+            }
+          }
+        }
+
+        if (userId) {
           await fetch(`${supabaseUrl}/rest/v1/user_subscriptions`, {
             method: 'POST',
             headers: {
@@ -92,16 +104,18 @@ export async function onRequest(context: { request: Request; env: Env }) {
             },
             body: JSON.stringify({
               user_id: userId,
-              plan_id: planId,
+              plan_id: 'pro',
               status: 'active',
-              creem_customer_id: customerId,
+              creem_customer_id: checkout.customer_id,
               creem_checkout_id: checkout.id,
               creem_subscription_id: subscriptionId,
               started_at: new Date().toISOString(),
               updated_at: new Date().toISOString(),
             }),
           })
-          console.log(`User ${userId} subscribed to ${planId}`)
+          console.log(`User ${userId} (${customerEmail}) subscribed to pro`)
+        } else {
+          console.error(`Could not find user for email: ${customerEmail}`)
         }
         break
       }
