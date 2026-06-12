@@ -80,6 +80,20 @@ export async function onRequest(context: { request: Request; env: Env }) {
     const event = JSON.parse(rawBody)
     console.log(`Received Creem event: ${event.type}`)
 
+    // Log event for debugging
+    await fetch(`${supabaseUrl}/rest/v1/webhook_logs`, {
+      method: 'POST',
+      headers: {
+        'apikey': supabaseKey,
+        'Authorization': `Bearer ${supabaseKey}`,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        event_type: event.type,
+        payload: JSON.stringify(event.data).substring(0, 2000),
+      }),
+    }).catch(() => {})
+
     switch (event.type) {
       case 'checkout.completed': {
         const checkout = event.data
@@ -118,6 +132,7 @@ export async function onRequest(context: { request: Request; env: Env }) {
         }
 
         if (userId) {
+          console.log(`Found userId: ${userId} for checkout: ${checkout.id}`)
           const now = new Date()
           const renewDate = billingInterval === 'year'
             ? new Date(now.getTime() + 365 * 86400000)
@@ -144,7 +159,7 @@ export async function onRequest(context: { request: Request; env: Env }) {
           })
           console.log(`User ${userId} (${customerEmail}) subscribed to pro (${billingInterval})`)
         } else {
-          console.error(`Could not find user for email: ${customerEmail}`)
+          console.error(`Could not find userId. checkout_id: ${checkout.id}, email: ${customerEmail}`)
         }
         break
       }
