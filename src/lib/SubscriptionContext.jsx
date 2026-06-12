@@ -161,6 +161,10 @@ export function SubscriptionProvider({ children }) {
     localStorage.removeItem(STORAGE_KEY)
   }, [authSignOut])
 
+  const isActive = subscription?.status === 'active' && (
+    !subscription?.renews_at || new Date(subscription.renews_at).getTime() > Date.now()
+  )
+
   return (
     <SubscriptionContext.Provider value={{
       subscription,
@@ -173,8 +177,8 @@ export function SubscriptionProvider({ children }) {
       isQuotaExceeded,
       upgradePlan,
       logout,
-      isPro: subscription?.plan_id === 'pro' || subscription?.plan_id === 'enterprise',
-      isEnterprise: subscription?.plan_id === 'enterprise',
+      isPro: isActive && (subscription?.plan_id === 'pro' || subscription?.plan_id === 'enterprise'),
+      isEnterprise: isActive && subscription?.plan_id === 'enterprise',
       billingInterval: subscription?.billing_interval || null,
       daysRemaining: subscription?.renews_at
         ? Math.max(0, Math.ceil((new Date(subscription.renews_at).getTime() - Date.now()) / 86400000))

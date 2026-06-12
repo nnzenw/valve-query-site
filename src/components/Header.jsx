@@ -49,7 +49,7 @@ export default function Header({ onOpenComparison, onOpenTips, onOpenPricing, co
                 <span className="flex flex-col items-start leading-tight">
                   <span>Pro</span>
                   {daysRemaining !== null && (
-                    <span className="text-[10px] font-normal opacity-80">
+                    <span className={`text-[10px] font-normal ${daysRemaining <= 3 ? 'text-red-200' : 'opacity-80'}`}>
                       {billingInterval === 'year' ? 'Yearly' : 'Monthly'} · {daysRemaining}d left
                     </span>
                   )}
