@@ -383,10 +383,10 @@ function HomePage() {
           <div className="mt-6 text-center">
             <div className="inline-flex items-center gap-2 px-4 py-2 bg-gray-100 rounded-full text-xs text-gray-600">
               Searched {dailyUsage} times today
-              {dailyUsage >= 15 && dailyUsage < 20 && (
+              {dailyUsage >= 3 && dailyUsage < 5 && (
                 <span className="text-yellow-600">(approaching Free limit)</span>
               )}
-              {dailyUsage >= 20 && (
+              {dailyUsage >= 5 && (
                 <span className="text-orange-600">(limit exceeded, some features restricted)</span>
               )}
               <button

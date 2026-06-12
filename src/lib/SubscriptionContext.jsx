@@ -17,7 +17,7 @@ export const PLANS = {
       can_export: false,
       can_see_price: false,
       can_submit_tips: true,
-      daily_search_limit: 20,
+      daily_search_limit: 5,
       full_detail_view: false
     }
   },
