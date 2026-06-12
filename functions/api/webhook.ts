@@ -103,6 +103,11 @@ export async function onRequest(context: { request: Request; env: Env }) {
         }
 
         if (userId) {
+          const now = new Date()
+          const renewDate = billingInterval === 'year'
+            ? new Date(now.getTime() + 365 * 86400000)
+            : new Date(now.getTime() + 30 * 86400000)
+
           await fetch(`${supabaseUrl}/rest/v1/user_subscriptions`, {
             method: 'POST',
             headers: {
@@ -117,8 +122,9 @@ export async function onRequest(context: { request: Request; env: Env }) {
               creem_customer_id: checkout.customer_id,
               creem_checkout_id: checkout.id,
               creem_subscription_id: subscriptionId,
-              started_at: new Date().toISOString(),
-              updated_at: new Date().toISOString(),
+              started_at: now.toISOString(),
+              renews_at: renewDate.toISOString(),
+              updated_at: now.toISOString(),
             }),
           })
           console.log(`User ${userId} (${customerEmail}) subscribed to pro (${billingInterval})`)
@@ -130,13 +136,28 @@ export async function onRequest(context: { request: Request; env: Env }) {
 
       case 'subscription.active': {
         const sub = event.data
+        const existingRes = await fetch(
+          `${supabaseUrl}/rest/v1/user_subscriptions?creem_subscription_id=eq.${sub.id}&select=billing_interval,started_at`,
+          { headers }
+        )
+        let renewDate = new Date()
+        if (existingRes.ok) {
+          const existing = await existingRes.json()
+          if (existing.length > 0) {
+            const { billing_interval, started_at } = existing[0]
+            const base = new Date(started_at)
+            renewDate = billing_interval === 'year'
+              ? new Date(base.getTime() + 365 * 86400000)
+              : new Date(base.getTime() + 30 * 86400000)
+          }
+        }
+
         await fetch(`${supabaseUrl}/rest/v1/user_subscriptions?creem_subscription_id=eq.${sub.id}`, {
           method: 'PATCH',
           headers,
           body: JSON.stringify({
             status: 'active',
-            creem_subscription_id: sub.id,
-            renews_at: new Date(sub.current_period_end * 1000).toISOString(),
+            renews_at: renewDate.toISOString(),
           }),
         })
         console.log(`Subscription ${sub.id} activated`)
