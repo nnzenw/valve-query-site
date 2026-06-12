@@ -64,7 +64,7 @@ export default function PricingPage({ onClose, user }) {
           productId,
           userId: user.id,
           email: user.email,
-          successUrl: `${window.location.origin}/dashboard`,
+          successUrl: `${window.location.origin}/`,
           cancelUrl: `${window.location.origin}/pricing`
         })
       })

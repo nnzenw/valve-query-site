@@ -52,7 +52,7 @@ export async function onRequest(context: { request: Request; env: Env }) {
       },
       body: JSON.stringify({
         product_id: productId,
-        success_url: successUrl || `${frontendUrl}/dashboard`,
+        success_url: successUrl || `${frontendUrl}/`,
         customer: email ? { email } : undefined,
       }),
     })
