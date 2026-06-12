@@ -6,12 +6,8 @@ interface Env {
 
 // Plan map: Creem Product ID -> plan config
 const PLAN_MAP: Record<string, { plan_id: string; interval: string; type: string }> = {
-  'prod_pro_monthly': { plan_id: 'pro', interval: 'month', type: 'user' },
-  'prod_pro_yearly': { plan_id: 'pro', interval: 'year', type: 'user' },
-  'prod_enterprise_monthly': { plan_id: 'enterprise', interval: 'month', type: 'user' },
-  'prod_supplier_basic': { plan_id: 'supplier_basic', interval: 'year', type: 'supplier' },
-  'prod_supplier_gold': { plan_id: 'supplier_gold', interval: 'year', type: 'supplier' },
-  'prod_supplier_platinum': { plan_id: 'supplier_platinum', interval: 'year', type: 'supplier' },
+  'prod_6Ty5aiWQZ2TRXS8b1dvHVu': { plan_id: 'pro', interval: 'month', type: 'user' },
+  'prod_3rh3lkbGWGWvgF8IqAOdDU': { plan_id: 'pro', interval: 'year', type: 'user' },
 }
 
 export async function onRequest(context: { request: Request; env: Env }) {
