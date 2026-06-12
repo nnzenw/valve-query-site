@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react'
-import { ArrowLeft, Check, Star, ExternalLink, ChevronDown, ChevronUp, Send } from 'lucide-react'
+import { ArrowLeft, Check, Star, ExternalLink, ChevronDown, ChevronUp, Send, Lock } from 'lucide-react'
 import SEO from '../components/seo/SEO'
 import InquiryModal from '../components/InquiryModal'
+import { useSubscription } from '../lib/SubscriptionContext'
 
 const BACKEND_URL = import.meta.env.VITE_BACKEND_URL || ''
 
@@ -17,6 +18,7 @@ export default function ValveDetailPage({ valveId }) {
   const [error, setError] = useState(null)
   const [expandedFaq, setExpandedFaq] = useState(null)
   const [showInquiry, setShowInquiry] = useState(false)
+  const { isPro } = useSubscription()
 
   useEffect(() => {
     loadValve()
@@ -277,9 +279,9 @@ export default function ValveDetailPage({ valveId }) {
             </div>
 
             {/* Material Specifications */}
-            <div className="mb-6">
+            <div className="mb-6 relative">
               <h3 className="text-sm font-medium text-gray-500 mb-3 uppercase tracking-wide">Material Specifications</h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+              <div className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 ${!isPro ? 'blur-sm pointer-events-none select-none' : ''}`}>
                 {[
                   { label: 'Body Material', value: valve.body_material },
                   { label: 'Trim Material', value: valve.trim_material },
@@ -292,12 +294,23 @@ export default function ValveDetailPage({ valveId }) {
                   </div>
                 ))}
               </div>
+              {!isPro && (
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <button
+                    onClick={() => window.dispatchEvent(new CustomEvent('showPricing'))}
+                    className="flex items-center gap-2 px-5 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg shadow-lg transition-colors"
+                  >
+                    <Lock className="w-4 h-4" />
+                    Upgrade to Pro to View
+                  </button>
+                </div>
+              )}
             </div>
 
             {/* Performance Specifications */}
-            <div className="mb-6">
+            <div className="mb-6 relative">
               <h3 className="text-sm font-medium text-gray-500 mb-3 uppercase tracking-wide">Performance Specifications</h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+              <div className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 ${!isPro ? 'blur-sm pointer-events-none select-none' : ''}`}>
                 {[
                   { label: 'Face-to-Face Dimension', value: valve.size_range },
                   { label: 'Pressure Range', value: valve.pressure_range },
@@ -313,6 +326,17 @@ export default function ValveDetailPage({ valveId }) {
                   </div>
                 ))}
               </div>
+              {!isPro && (
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <button
+                    onClick={() => window.dispatchEvent(new CustomEvent('showPricing'))}
+                    className="flex items-center gap-2 px-5 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg shadow-lg transition-colors"
+                  >
+                    <Lock className="w-4 h-4" />
+                    Upgrade to Pro to View
+                  </button>
+                </div>
+              )}
             </div>
 
             {/* Certifications & Standards */}

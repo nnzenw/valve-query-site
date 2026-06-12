@@ -143,6 +143,12 @@ function HomePage() {
   const [showPricing, setShowPricing] = useState<boolean>(false)
   const { isPro, canAccess, isQuotaExceeded, incrementUsage, dailyUsage } = useSubscription()
 
+  useEffect(() => {
+    const handler = () => setShowPricing(true)
+    window.addEventListener('showPricing', handler)
+    return () => window.removeEventListener('showPricing', handler)
+  }, [])
+
   const handleFeedback = async (valveId: number, type: 'like' | 'dislike'): Promise<void> => {
     try {
       const { error } = await supabase.from('valve_feedback').insert({
