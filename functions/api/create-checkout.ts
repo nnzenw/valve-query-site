@@ -21,7 +21,7 @@ export async function onRequest(context: { request: Request; env: Env }) {
   }
 
   const CREEM_API_KEY = env.CREEM_API_KEY?.trim()
-  const CREEM_BASE_URL = 'https://api.creem.io/v1'
+  const CREEM_BASE_URL = 'https://test-api.creem.io/v1'
 
   try {
     const body = await request.json()
