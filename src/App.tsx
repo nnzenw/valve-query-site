@@ -17,6 +17,7 @@ import EmptyState from './components/EmptyState'
 import ErrorBoundary from './components/ErrorBoundary'
 import ShareSearchButton from './components/ShareSearchButton'
 import { useSubscription } from './lib/SubscriptionContext'
+import { useAuth } from './contexts/AuthContext'
 
 // Lazy-loaded page components (code splitting)
 const ComparisonPage = lazy(() => import('./components/ComparisonPage'))
@@ -117,6 +118,7 @@ const homeFaqSchema = {
 
 function HomePage() {
   const navigate = useNavigate()
+  const { user } = useAuth()
   const [urlSearchParams, setUrlSearchParams] = useSearchParams()
   const [valves, setValves] = useState<ValveItem[]>([])
   const [brands, setBrands] = useState<BrandOption[]>([])
@@ -449,7 +451,7 @@ function HomePage() {
       
       {showPricing && (
         <Suspense fallback={null}>
-          <PricingPage onClose={() => setShowPricing(false)} />
+          <PricingPage onClose={() => setShowPricing(false)} user={user} />
         </Suspense>
       )}
     </div>
