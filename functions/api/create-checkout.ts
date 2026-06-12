@@ -53,13 +53,7 @@ export async function onRequest(context: { request: Request; env: Env }) {
       body: JSON.stringify({
         product_id: productId,
         success_url: successUrl || `${frontendUrl}/dashboard`,
-        cancel_url: cancelUrl || `${frontendUrl}/pricing`,
         customer: email ? { email } : undefined,
-        metadata: {
-          userId,
-          planId: planInfo.plan_id,
-          planType: planInfo.type,
-        },
       }),
     })
 
