@@ -89,15 +89,30 @@ export async function onRequest(context: { request: Request; env: Env }) {
         const billingInterval = PRODUCT_INTERVAL_MAP[productId] || 'month'
 
         let userId: string | null = null
-        if (customerEmail) {
-          const userRes = await fetch(
-            `${supabaseUrl}/auth/v1/admin/users?email=${encodeURIComponent(customerEmail)}`,
-            { headers: { ...headers, 'Authorization': `Bearer ${supabaseKey}` } }
+        if (checkout.id) {
+          const pendingRes = await fetch(
+            `${supabaseUrl}/rest/v1/pending_checkouts?checkout_id=eq.${checkout.id}&select=user_id&limit=1`,
+            { headers }
           )
-          if (userRes.ok) {
-            const users = await userRes.json()
-            if (users.length > 0) {
-              userId = users[0].id
+          if (pendingRes.ok) {
+            const pending = await pendingRes.json()
+            if (pending.length > 0) {
+              userId = pending[0].user_id
+            }
+          }
+        }
+
+        if (!userId && customerEmail) {
+          const adminRes = await fetch(
+            `${supabaseUrl}/auth/v1/admin/users`,
+            { headers: { 'apikey': supabaseKey, 'Authorization': `Bearer ${supabaseKey}` } }
+          )
+          if (adminRes.ok) {
+            const data = await adminRes.json()
+            const users = data.users || []
+            const found = users.find((u: any) => u.email === customerEmail)
+            if (found) {
+              userId = found.id
             }
           }
         }

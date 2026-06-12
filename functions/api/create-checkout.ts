@@ -2,6 +2,8 @@ interface Env {
   CREEM_API_KEY: string
   CREEM_WEBHOOK_SECRET: string
   FRONTEND_URL: string
+  SUPABASE_URL: string
+  SUPABASE_SERVICE_KEY: string
 }
 
 // Plan map: Creem Product ID -> plan config
@@ -66,6 +68,23 @@ export async function onRequest(context: { request: Request; env: Env }) {
     }
 
     const checkout = await checkoutResponse.json()
+
+    const supabaseUrl = env.SUPABASE_URL?.trim()
+    const supabaseKey = env.SUPABASE_SERVICE_KEY?.trim()
+    if (supabaseUrl && supabaseKey && userId) {
+      await fetch(`${supabaseUrl}/rest/v1/pending_checkouts`, {
+        method: 'POST',
+        headers: {
+          'apikey': supabaseKey,
+          'Authorization': `Bearer ${supabaseKey}`,
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          user_id: userId,
+          checkout_id: checkout.id,
+        }),
+      })
+    }
 
     return new Response(JSON.stringify({
       checkoutId: checkout.id,
