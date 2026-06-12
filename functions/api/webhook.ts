@@ -4,6 +4,11 @@ interface Env {
   CREEM_WEBHOOK_SECRET: string
 }
 
+const PRODUCT_INTERVAL_MAP: Record<string, string> = {
+  'prod_6Ty5aiWQZ2TRXS8b1dvHVu': 'month',
+  'prod_3rh3lkbGWGWvgF8IqAOdDU': 'year',
+}
+
 async function verifyWebhookSignature(
   payload: string,
   signature: string | null,
@@ -80,6 +85,8 @@ export async function onRequest(context: { request: Request; env: Env }) {
         const checkout = event.data
         const customerEmail = checkout.customer_email || checkout.email
         const subscriptionId = checkout.subscription_id
+        const productId = checkout.product_id
+        const billingInterval = PRODUCT_INTERVAL_MAP[productId] || 'month'
 
         let userId: string | null = null
         if (customerEmail) {
@@ -106,6 +113,7 @@ export async function onRequest(context: { request: Request; env: Env }) {
               user_id: userId,
               plan_id: 'pro',
               status: 'active',
+              billing_interval: billingInterval,
               creem_customer_id: checkout.customer_id,
               creem_checkout_id: checkout.id,
               creem_subscription_id: subscriptionId,
@@ -113,7 +121,7 @@ export async function onRequest(context: { request: Request; env: Env }) {
               updated_at: new Date().toISOString(),
             }),
           })
-          console.log(`User ${userId} (${customerEmail}) subscribed to pro`)
+          console.log(`User ${userId} (${customerEmail}) subscribed to pro (${billingInterval})`)
         } else {
           console.error(`Could not find user for email: ${customerEmail}`)
         }

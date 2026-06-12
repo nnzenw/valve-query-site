@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import { useSubscription } from '../lib/SubscriptionContext'
 
 export default function Header({ onOpenComparison, onOpenTips, onOpenPricing, comparisonCount }) {
-  const { isPro, user, logout } = useSubscription()
+  const { isPro, user, logout, billingInterval, daysRemaining } = useSubscription()
   const navigate = useNavigate()
 
   const handleLogout = async () => {
@@ -45,7 +45,16 @@ export default function Header({ onOpenComparison, onOpenTips, onOpenPricing, co
               }`}
             >
               <Zap className="w-4 h-4" />
-              {isPro ? 'Pro' : 'Upgrade'}
+              {isPro ? (
+                <span className="flex flex-col items-start leading-tight">
+                  <span>Pro</span>
+                  {daysRemaining !== null && (
+                    <span className="text-[10px] font-normal opacity-80">
+                      {billingInterval === 'year' ? 'Yearly' : 'Monthly'} · {daysRemaining}d left
+                    </span>
+                  )}
+                </span>
+              ) : 'Upgrade'}
             </button>
             <button
               onClick={onOpenComparison}

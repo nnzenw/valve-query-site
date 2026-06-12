@@ -174,7 +174,12 @@ export function SubscriptionProvider({ children }) {
       upgradePlan,
       logout,
       isPro: subscription?.plan_id === 'pro' || subscription?.plan_id === 'enterprise',
-      isEnterprise: subscription?.plan_id === 'enterprise'
+      isEnterprise: subscription?.plan_id === 'enterprise',
+      billingInterval: subscription?.billing_interval || null,
+      daysRemaining: subscription?.renews_at
+        ? Math.max(0, Math.ceil((new Date(subscription.renews_at).getTime() - Date.now()) / 86400000))
+        : null,
+      renewsAt: subscription?.renews_at || null,
     }}>
       {children}
     </SubscriptionContext.Provider>
