@@ -78,29 +78,35 @@ export async function onRequest(context: { request: Request; env: Env }) {
     }
 
     const event = JSON.parse(rawBody)
-    console.log(`Received Creem event: ${event.type}`)
+    const eventType = event.type || event.eventType
+    const eventData = event.data || event.object || {}
+    console.log(`Received Creem event: ${eventType}`)
 
     // Log event for debugging
-    await fetch(`${supabaseUrl}/rest/v1/webhook_logs`, {
-      method: 'POST',
-      headers: {
-        'apikey': supabaseKey,
-        'Authorization': `Bearer ${supabaseKey}`,
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        event_type: event.type,
-        payload: JSON.stringify(event.data).substring(0, 2000),
-      }),
-    }).catch(() => {})
+    try {
+      await fetch(`${supabaseUrl}/rest/v1/webhook_logs`, {
+        method: 'POST',
+        headers: {
+          'apikey': supabaseKey,
+          'Authorization': `Bearer ${supabaseKey}`,
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          event_type: eventType,
+          payload: JSON.stringify(eventData).substring(0, 2000),
+        }),
+      })
+    } catch {}
 
-    switch (event.type) {
+    switch (eventType) {
       case 'checkout.completed': {
-        const checkout = event.data
-        const customerEmail = checkout.customer_email || checkout.email
-        const subscriptionId = checkout.subscription_id
-        const productId = checkout.product_id
+        const checkout = eventData
+        const order = checkout.order || checkout
+        const customerEmail = checkout.customer_email || checkout.email || order.customer_email
+        const subscriptionId = checkout.subscription_id || order.subscription_id
+        const productId = checkout.product_id || order.product
         const billingInterval = PRODUCT_INTERVAL_MAP[productId] || 'month'
+        const customerId = checkout.customer_id || order.customer
 
         let userId: string | null = null
         if (checkout.id) {
@@ -149,7 +155,7 @@ export async function onRequest(context: { request: Request; env: Env }) {
               plan_id: 'pro',
               status: 'active',
               billing_interval: billingInterval,
-              creem_customer_id: checkout.customer_id,
+              creem_customer_id: customerId,
               creem_checkout_id: checkout.id,
               creem_subscription_id: subscriptionId,
               started_at: now.toISOString(),
@@ -165,7 +171,7 @@ export async function onRequest(context: { request: Request; env: Env }) {
       }
 
       case 'subscription.active': {
-        const sub = event.data
+        const sub = eventData
         const existingRes = await fetch(
           `${supabaseUrl}/rest/v1/user_subscriptions?creem_subscription_id=eq.${sub.id}&select=billing_interval,started_at`,
           { headers }
@@ -195,13 +201,13 @@ export async function onRequest(context: { request: Request; env: Env }) {
       }
 
       case 'subscription.paid': {
-        const sub = event.data
+        const sub = eventData
         console.log(`Subscription ${sub.id} payment succeeded`)
         break
       }
 
       case 'subscription.canceled': {
-        const sub = event.data
+        const sub = eventData
         await fetch(`${supabaseUrl}/rest/v1/user_subscriptions?creem_subscription_id=eq.${sub.id}`, {
           method: 'PATCH',
           headers,
@@ -215,7 +221,7 @@ export async function onRequest(context: { request: Request; env: Env }) {
       }
 
       case 'subscription.past_due': {
-        const sub = event.data
+        const sub = eventData
         await fetch(`${supabaseUrl}/rest/v1/user_subscriptions?creem_subscription_id=eq.${sub.id}`, {
           method: 'PATCH',
           headers,
@@ -226,13 +232,13 @@ export async function onRequest(context: { request: Request; env: Env }) {
       }
 
       case 'refund.created': {
-        const refund = event.data
+        const refund = eventData
         console.log(`Refund created: ${refund.id}`)
         break
       }
 
       default:
-        console.log(`Unhandled event type: ${event.type}`)
+        console.log(`Unhandled event type: ${eventType}`)
     }
 
     return new Response(JSON.stringify({ received: true }), {
