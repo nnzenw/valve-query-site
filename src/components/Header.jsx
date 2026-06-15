@@ -1,8 +1,8 @@
-import { Wrench, ClipboardList, Lightbulb, Zap, User, LogOut } from 'lucide-react'
+import { Wrench, ClipboardList, Lightbulb, Zap, User, LogOut, MessageSquare } from 'lucide-react'
 import { Link, useNavigate } from 'react-router-dom'
 import { useSubscription } from '../lib/SubscriptionContext'
 
-export default function Header({ onOpenComparison, onOpenTips, onOpenPricing, comparisonCount }) {
+export default function Header({ onOpenComparison, onOpenTips, onOpenPricing, onOpenFeedback, comparisonCount }) {
   const { isPro, user, logout, billingInterval, daysRemaining } = useSubscription()
   const navigate = useNavigate()
 
@@ -35,6 +35,13 @@ export default function Header({ onOpenComparison, onOpenTips, onOpenPricing, co
             >
               <Lightbulb className="w-4 h-4" />
               Community
+            </button>
+            <button
+              onClick={onOpenFeedback}
+              className="px-4 py-2 text-sm text-gray-600 hover:text-green-600 hover:bg-green-50 transition-colors rounded-lg flex items-center gap-2"
+            >
+              <MessageSquare className="w-4 h-4" />
+              Feedback
             </button>
             <button
               onClick={onOpenPricing}

@@ -23,6 +23,7 @@ import { useAuth } from './contexts/AuthContext'
 const ComparisonPage = lazy(() => import('./components/ComparisonPage'))
 const TipsCommunity = lazy(() => import('./components/TipsCommunity'))
 const PricingPage = lazy(() => import('./components/PricingPage'))
+const FeedbackModal = lazy(() => import('./components/FeedbackModal'))
 const ValveDetailPage = lazy(() => import('./pages/ValveDetailPage'))
 const BrandsPage = lazy(() => import('./pages/BrandsPage'))
 const BrandDetailPage = lazy(() => import('./pages/BrandDetailPage'))
@@ -141,6 +142,7 @@ function HomePage() {
   const [showComparison, setShowComparison] = useState<boolean>(false)
   const [showTipsCommunity, setShowTipsCommunity] = useState<boolean>(false)
   const [showPricing, setShowPricing] = useState<boolean>(false)
+  const [showFeedback, setShowFeedback] = useState<boolean>(false)
   const { isPro, canAccess, isQuotaExceeded, incrementUsage, dailyUsage } = useSubscription()
 
   useEffect(() => {
@@ -263,6 +265,7 @@ function HomePage() {
         onOpenComparison={() => setShowComparison(true)} 
         onOpenTips={() => setShowTipsCommunity(true)} 
         onOpenPricing={() => setShowPricing(true)} 
+        onOpenFeedback={() => setShowFeedback(true)}
       />
       
       <SearchBar
@@ -458,6 +461,12 @@ function HomePage() {
       {showPricing && (
         <Suspense fallback={null}>
           <PricingPage onClose={() => setShowPricing(false)} user={user} />
+        </Suspense>
+      )}
+      
+      {showFeedback && (
+        <Suspense fallback={null}>
+          <FeedbackModal onClose={() => setShowFeedback(false)} />
         </Suspense>
       )}
     </div>
