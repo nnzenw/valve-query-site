@@ -1,5 +1,6 @@
 import { createContext, useContext, useState, useEffect, useCallback } from 'react'
 import { useAuth } from '../contexts/AuthContext'
+import { supabase } from './supabase'
 
 const BACKEND_URL = import.meta.env.VITE_BACKEND_URL || ''
 
@@ -26,8 +27,8 @@ export const PLANS = {
     name: 'Pro',
     price_monthly: 999,
     price_yearly: 7999,
-    creem_product_id_monthly: 'prod_6Ty5aiWQZ2TRXS8b1dvHVu',
-    creem_product_id_yearly: 'prod_3rh3lkbGWGWvgF8IqAOdDU',
+    creem_product_id_monthly: 'prod_1l8LO5O0WveOMuAIF1ybDu',
+    creem_product_id_yearly: 'prod_bjLZnzAr8f2p9IqQHbofW',
     features: {
       max_comparisons: 10,
       can_export: true,
@@ -72,7 +73,10 @@ export function SubscriptionProvider({ children }) {
 
     const fetchSubscription = async () => {
       try {
-        const res = await fetch(`${BACKEND_URL}/api/subscription/${user.id}`)
+        const { data: sessionData } = await supabase.auth.getSession()
+        const token = sessionData.session?.access_token
+        const headers = token ? { 'Authorization': `Bearer ${token}` } : {}
+        const res = await fetch(`${BACKEND_URL}/api/subscription/${user.id}`, { headers })
         if (res.ok) {
           const data = await res.json()
           if (data.subscription) {

@@ -718,6 +718,586 @@ Use [ValveSpecs Pro](/search) to filter valves by temperature range and material
         answer: "Gate valves and globe valves are most commonly used for high-temperature steam. Gate valves provide low pressure drop for isolation, while globe valves offer better erosion resistance for throttling. Materials must be selected based on steam temperature: carbon steel up to 425°C, alloy steel up to 595°C."
       }
     ]
+  },
+  {
+    slug: "butterfly-valve-vs-gate-valve",
+    title: "Butterfly Valve vs Gate Valve: When to Use Each",
+    metaTitle: "Butterfly Valve vs Gate Valve: Selection Guide | ValveSpecs Pro",
+    metaDescription: "Butterfly valve vs gate valve comparison: flow characteristics, pressure rating, installation space, cost analysis. Engineering guide with data tables for industrial valve selection.",
+    date: "2026-06-18",
+    author: "ValveSpecs Engineering Team",
+    category: "comparison",
+    tags: ["butterfly valve", "gate valve", "comparison", "selection"],
+    summary: "Butterfly valves are compact and cost-effective for large diameters. Gate valves provide low pressure drop in fully open position. This guide compares their design, performance, and ideal applications.",
+    content: `
+## Quick Comparison
+
+- **Butterfly Valve**: Compact, lightweight, cost-effective for DN50-DN2000
+- **Gate Valve**: Low pressure drop, bi-directional, full bore flow
+
+## Design Differences
+
+### Butterfly Valve
+A butterfly valve uses a disc mounted on a rotating shaft. The disc rotates within the flow path, creating a variable obstruction. Available in concentric (resilient seat), double-offset, and triple-offset designs.
+
+**Operation**: Quarter-turn (90 degrees)
+**Seat types**: Rubber (EPDM, NBR), PTFE, metal-seated (triple offset)
+
+### Gate Valve
+A gate valve uses a flat or wedge-shaped gate that slides up and down perpendicular to the flow. When fully open, the gate retracts completely into the bonnet, providing an unobstructed flow path.
+
+**Operation**: Multi-turn (handwheel or actuator)
+**Gate types**: Solid wedge, flexible wedge, split wedge, parallel slide
+
+## Performance Comparison
+
+| Parameter | Butterfly Valve | Gate Valve |
+|-----------|----------------|------------|
+| Size Range | DN50 - DN2000 | DN15 - DN600 |
+| Pressure Rating | PN10 - PN40 (typical) | PN10 - PN250 |
+| Flow Coefficient (Cv) | Medium (disc obstructs flow) | Very High (full bore) |
+| Pressure Drop | Moderate | Very Low |
+| Shutoff Class | Class IV - VI | Class II - IV |
+| Installation Space | Very Compact | Large (tall bonnet) |
+| Weight | 50-80% lighter | Heavier |
+| Cost (DN300) | 0.3-0.5x | 1.0x |
+| Maintenance | Seat replacement easy | Bonnet removal required |
+| Bi-directional | Yes | Yes |
+
+## Application Guide
+
+| Application | Recommended | Why |
+|-------------|-------------|-----|
+| Water treatment | Butterfly | Low cost, compact, adequate sealing |
+| Fire protection | Gate | Full bore, minimal pressure loss |
+| HVAC systems | Butterfly | Space-saving, lightweight |
+| Oil & gas isolation | Gate | High pressure, bubble-tight |
+| Chemical processing | Butterfly (lined) | Corrosion resistance, easy maintenance |
+| Power plant steam | Gate | High temperature, full bore |
+| Wastewater | Butterfly | Large diameter, cost-effective |
+| Desalination | Double-offset butterfly | Seawater corrosion resistance |
+
+## Cost Analysis (DN300, PN16)
+
+| Cost Factor | Butterfly Valve | Gate Valve |
+|-------------|----------------|------------|
+| Valve cost | $800 | $2,000 |
+| Actuator | $1,200 | $1,800 |
+| Installation | $200 | $400 |
+| Weight savings | Significant | Baseline |
+| **Total installed** | **$2,200** | **$4,200** |
+
+## Selection Decision Tree
+
+1. Size > DN500 and pressure < PN16 → **Butterfly Valve**
+2. Bubble-tight shutoff required → **Gate Valve** or **Triple-offset Butterfly**
+3. Space constrained → **Butterfly Valve**
+4. High pressure (>PN40) → **Gate Valve**
+5. Frequent operation → **Butterfly Valve** (lower torque)
+6. Full bore flow critical → **Gate Valve**
+
+## Special Considerations
+
+**Cavitation risk**: Butterfly valves are more susceptible to cavitation due to the disc creating turbulence. For applications with high pressure drop, consider cavitation-resistant trim.
+
+**Wear**: Butterfly valve seats wear faster than gate valve seats in abrasive service. Plan for more frequent maintenance.
+
+## ValveSpecs Pro Resources
+
+Use our [valve search](/) to compare specific butterfly and gate valve models from 90+ brands. Filter by size, pressure rating, material, and application to find the optimal valve for your project.
+`
+  },
+  {
+    slug: "valve-actuator-selection-guide",
+    title: "Valve Actuator Selection: Pneumatic vs Electric vs Hydraulic",
+    metaTitle: "Valve Actuator Selection Guide: Pneumatic vs Electric vs Hydraulic | ValveSpecs Pro",
+    metaDescription: "Complete valve actuator selection guide: pneumatic, electric, and hydraulic actuators compared. Torque calculation, fail-safe requirements, and application recommendations for industrial valves.",
+    date: "2026-06-18",
+    author: "ValveSpecs Engineering Team",
+    category: "guide",
+    tags: ["actuator", "pneumatic", "electric", "hydraulic", "selection"],
+    summary: "Choosing the right valve actuator is critical for reliable operation. This guide compares pneumatic, electric, and hydraulic actuators with torque calculation methods, fail-safe options, and application-specific recommendations.",
+    content: `
+## Actuator Types Overview
+
+| Type | Power Source | Speed | Torque Range | Best For |
+|------|-------------|-------|--------------|----------|
+| Pneumatic | Compressed air (4-8 bar) | Fast | 10-500,000 Nm | On/off, emergency shutdown |
+| Electric | AC/DC motor | Medium | 10-200,000 Nm | Precise control, remote locations |
+| Hydraulic | Pressurized oil | Slow-Medium | 100-2,000,000 Nm | High torque, heavy-duty |
+
+## Pneumatic Actuators
+
+### Types
+- **Rack and pinion**: Most common, 90-degree quarter-turn
+- **Scotch yoke**: High torque at end positions
+- **Diaphragm**: Linear motion for globe/control valves
+- **Vane**: Compact, no external moving parts
+
+### Advantages
+- Inherently fail-safe (spring return)
+- Fastest response time (0.5-2 seconds)
+- Simple design, low maintenance
+- Intrinsically safe (no electrical spark)
+- Lowest cost per Nm of torque
+
+### Disadvantages
+- Requires air supply infrastructure
+- Positioning accuracy ±1-2%
+- Noise from air exhaust
+- Temperature range limited by seals (-40°C to +80°C typical)
+
+### When to Use
+- Emergency shutdown (ESD) systems
+- On/off isolation service
+- Hazardous areas (ATEX/IECEx zones)
+- Fast cycling applications
+
+## Electric Actuators
+
+### Types
+- **Multi-turn**: For gate and globe valves
+- **Quarter-turn**: For ball, butterfly, and plug valves
+- **Linear**: For control valves
+- **Modulating**: Precise positioning with feedback
+
+### Advantages
+- Precise positioning (±0.1%)
+- No external power supply needed
+- Quiet operation
+- Built-in diagnostics
+- Wide temperature range (-40°C to +70°C)
+
+### Disadvantages
+- Slower response (3-15 seconds for quarter-turn)
+- Higher initial cost
+- Requires explosion-proof housing in hazardous areas
+- Motor can stall under high load
+- Battery backup needed for fail-safe
+
+### When to Use
+- Modulating control applications
+- Remote locations without air supply
+- Precise positioning requirements
+- SCADA/DCS integrated systems
+
+## Hydraulic Actuators
+
+### Advantages
+- Highest torque output
+- Smooth, controlled motion
+- Excellent for high-pressure differential
+- Can hold position without power
+
+### Disadvantages
+- Requires hydraulic power unit (HPU)
+- Higher maintenance (oil changes, leak inspection)
+- Slower response
+- Higher total cost of ownership
+- Environmental concerns (oil泄漏)
+
+### When to Use
+- Large gate valves (>DN600)
+- High-pressure differential (>PN100)
+- Subsea applications
+- Steel mill and mining equipment
+
+## Torque Calculation
+
+### Quarter-turn Valve Torque Formula
+\`\`\`
+Required Actuator Torque = Valve Break Torque × Safety Factor
+Safety Factor: 1.3 (standard) to 1.5 (critical service)
+\`\`\`
+
+### Common Torque Requirements
+
+| Valve Size | Ball Valve (Nm) | Butterfly Valve (Nm) | Gate Valve (Nm) |
+|-----------|----------------|---------------------|-----------------|
+| DN50 | 20-40 | 15-30 | 30-60 |
+| DN100 | 50-100 | 40-80 | 80-150 |
+| DN200 | 150-300 | 100-200 | 200-400 |
+| DN300 | 300-600 | 200-400 | 400-800 |
+| DN500 | 600-1200 | 400-800 | 800-1600 |
+
+## Fail-Safe Requirements
+
+| Fail Action | Pneumatic | Electric | Hydraulic |
+|-------------|-----------|----------|-----------|
+| Fail Closed | Spring return | Battery backup | Spring or accumulator |
+| Fail Open | Double-acting | Battery backup | Spring or accumulator |
+| Fail Last | Lock-up valve | Motor brake | Lock valve |
+| Fail Safe | SOL valve + spring | UPS + battery | Accumulator |
+
+## Selection Decision Guide
+
+1. **Emergency shutdown** → Pneumatic (fast, inherently safe)
+2. **Modulating control** → Electric (precise positioning)
+3. **Large valve, high torque** → Hydraulic
+4. **Remote location, no air** → Electric
+5. **Hazardous area** → Pneumatic (simplest certification)
+6. **Frequent cycling** → Pneumatic (longest cycle life)
+
+## Cost Comparison (DN200 Ball Valve)
+
+| Component | Pneumatic | Electric | Hydraulic |
+|-----------|-----------|----------|-----------|
+| Actuator | $800 | $2,500 | $4,000 |
+| Accessories | $200 | $300 | $1,500 |
+| Installation | $300 | $300 | $800 |
+| Annual maintenance | $100 | $50 | $500 |
+| **5-year TCO** | **$4,800** | **$7,550** | **$14,300** |
+
+## ValveSpecs Pro Resources
+
+Browse our valve database to find actuated valve solutions from top brands. Filter by valve type, actuator type, and application requirements.
+`
+  },
+  {
+    slug: "industrial-valve-standards-guide",
+    title: "Industrial Valve Standards: API, ASME, ISO, DIN, and JIS Explained",
+    metaTitle: "Industrial Valve Standards Guide: API, ASME, ISO, DIN, JIS | ValveSpecs Pro",
+    metaDescription: "Complete guide to industrial valve standards: API 6D, API 600, ASME B16.34, ISO 5208, DIN, and JIS. Understand certification requirements for global valve procurement.",
+    date: "2026-06-18",
+    author: "ValveSpecs Engineering Team",
+    category: "guide",
+    tags: ["standards", "API", "ASME", "ISO", "DIN", "certification"],
+    summary: "Understanding valve standards is essential for global procurement. This guide covers API, ASME, ISO, DIN, and JIS standards with a comparison matrix to help engineers specify the correct standards for their projects.",
+    content: `
+## Why Valve Standards Matter
+
+Valve standards ensure:
+- **Interchangeability**: Valves from different manufacturers fit the same piping
+- **Safety**: Minimum material, testing, and design requirements
+- **Quality**: Consistent performance across suppliers
+- **Regulatory compliance**: Meeting local and international codes
+
+## Major Standard Organizations
+
+| Organization | Region | Focus |
+|-------------|--------|-------|
+| API (American Petroleum Institute) | USA | Oil & gas, petroleum |
+| ASME (American Society of Mechanical Engineers) | USA | Pressure vessels, piping |
+| ISO (International Organization for Standardization) | Global | International standards |
+| DIN (Deutsches Institut für Normung) | Germany/Europe | European industry |
+| JIS (Japanese Industrial Standards) | Japan | Japanese industry |
+| BS (British Standards) | UK | British industry |
+
+## Key API Standards for Valves
+
+| Standard | Title | Application |
+|----------|-------|-------------|
+| API 6D | Pipeline and Piping Valves | Pipeline ball, check, gate valves |
+| API 600 | Steel Gate Valves | Bolted bonnet gate valves |
+| API 602 | Compact Steel Gate Valves | Small size (DN100 and under) |
+| API 603 | Corrosion-Resistant Gate Valves | Stainless steel gate valves |
+| API 607 | Fire Test for Quarter-Turn Valves | Fire-safe ball, butterfly, plug |
+| API 608 | Metal Ball Valves | Flanged, threaded, welding end |
+| API 609 | Butterfly Valves | Double and triple offset |
+| API 594 | Check Valves | Wafer, lug, double flange |
+| API 598 | Valve Inspection and Testing | Leakage and pressure testing |
+| API 594 | Pressure Relief Valves | PRV/PSV sizing and selection |
+
+## Key ASME Standards
+
+| Standard | Title | Application |
+|----------|-------|-------------|
+| ASME B16.34 | Valves — Flanged, Threaded, Welding End | Pressure-temperature ratings |
+| ASME B16.10 | Face-to-Face and End-to-End Dimensions | Valve dimensions |
+| ASME B16.5 | Pipe Flanges and Flanged Fittings | Flange dimensions |
+| ASME B16.25 | Buttwelding Ends | Weld end preparation |
+| ASME B16.47 | Large Diameter Steel Flanges | DN650 and above |
+
+## Key ISO Standards
+
+| Standard | Title | Application |
+|----------|-------|-------------|
+| ISO 5208 | Pressure Testing of Industrial Valves | Leakage classes A-D |
+| ISO 5211 | Actuator Attachment | Actuator mounting |
+| ISO 17292 | Metal Ball Valves | Petrochemical use |
+| ISO 10434 | Bolted Bonnet Steel Gate Valves | Oil and gas |
+| ISO 15761 | Steel Gate Valves | Petrochemical |
+
+## DIN Standards (European)
+
+| Standard | Equivalent | Application |
+|----------|-----------|-------------|
+| DIN 3202 | ASME B16.10 | Face-to-face dimensions |
+| DIN 2501 | ASME B16.5 | Flange dimensions |
+| DIN 3352 | API 600 | Gate valves |
+| DIN 3354 | API 608 | Ball valves |
+| DIN 3356 | API 594 | Check valves |
+
+## JIS Standards (Japanese)
+
+| Standard | Equivalent | Application |
+|----------|-----------|-------------|
+| JIS B 2073 | API 600 | Gate valves |
+| JIS B 2071 | API 608 | Ball valves |
+| JIS B 2074 | API 594 | Check valves |
+| JIS B 2002 | ASME B16.10 | Face-to-face |
+| JIS B 2220 | ASME B16.5 | Flanges |
+
+## Pressure-Temperature Ratings Comparison
+
+### Class 150 (PN20) at Various Temperatures
+
+| Temperature | ASME (ksi) | DIN (bar) | JIS (MPa) |
+|-------------|-----------|-----------|-----------|
+| -29°C to 425°C | 285 | 195 | 19.6 |
+| 450°C | 230 | 157 | 15.4 |
+| 500°C | 170 | 116 | 11.3 |
+
+## Leakage Classification (ISO 5208)
+
+| Class | Test Medium | Max Leakage |
+|-------|-----------|-------------|
+| A | Water | No visible leakage |
+| B | Water | 0.01 × DN (mm³/s) |
+| C | Air/N₂ | 0.03 × DN (mm³/s) |
+| D | Air/N₂ | Bubble-tight |
+
+## Global Procurement Tips
+
+1. **API standards** → Required for US and Middle East projects
+2. **DIN/EN standards** → Required for European projects
+3. **JIS standards** → Required for Japanese projects
+4. **ISO standards** → Acceptable globally as baseline
+5. **Dual certification** → Many manufacturers offer API + DIN certified valves
+
+## ValveSpecs Pro Resources
+
+Our valve database includes specifications referencing all major standards. Search by standard to find compliant valves for your project.
+`
+  },
+  {
+    slug: "control-valve-sizing-guide",
+    title: "Control Valve Sizing: Cv Calculation and Selection Methodology",
+    metaTitle: "Control Valve Sizing Guide: Cv Calculation & Selection | ValveSpecs Pro",
+    metaDescription: "Learn how to size control valves using Cv calculation. Step-by-step guide covering liquid, gas, and steam sizing with examples. ISA/IEC standards and practical selection tips.",
+    date: "2026-06-18",
+    author: "ValveSpecs Engineering Team",
+    category: "guide",
+    tags: ["control valve", "sizing", "Cv", "calculation", "ISA"],
+    summary: "Proper control valve sizing ensures accurate process control and prevents cavitation, noise, and premature wear. This guide covers Cv calculation for liquid, gas, and steam applications with practical examples.",
+    content: `
+## What is Cv?
+
+**Cv (Flow Coefficient)** is the number of US gallons per minute (GPM) of water at 60°F that will flow through a valve with a pressure drop of 1 psi.
+
+- **Cv for water**: Standard definition above
+- **Kv (metric)**: Cv × 0.865
+- **Av**: Kv × (ρ/1000)^0.5
+
+## Liquid Sizing (Incompressible Flow)
+
+### Basic Cv Formula
+\`\`\`
+Cv = Q × √(SG / ΔP)
+
+Where:
+Q = Flow rate (GPM)
+SG = Specific gravity (relative to water = 1.0)
+ΔP = Pressure drop across valve (psi)
+\`\`\`
+
+### Example: Water Service
+- Flow: 200 GPM
+- SG: 1.0
+- Upstream pressure: 100 psig
+- Downstream pressure: 80 psig
+- ΔP: 20 psi
+
+\`\`\`
+Cv = 200 × √(1.0 / 20) = 200 × 0.224 = 44.7
+\`\`\`
+
+**Select a valve with Cv ≥ 45**
+
+### Pressure Recovery Factor (FL)
+For applications approaching cavitation, use the corrected formula:
+\`\`\`
+Cv = Q × √(SG / (FL² × (P1 - P2)))
+\`\`\`
+
+Typical FL values: 0.6-0.9 depending on valve trim design.
+
+## Gas Sizing (Compressible Flow)
+
+### Basic Cv Formula (Subsonic)
+\`\`\`
+Cv = Qg / (63.5 × Fp) × √(SG × T / ΔP × P2)
+
+Where:
+Qg = Gas flow rate (SCFH)
+Fp = Piping geometry factor
+T = Temperature (°R)
+P2 = Downstream pressure (psia)
+\`\`\`
+
+### Choked Flow Check
+When P2/P1 < 0.53 (for air/gas with k=1.4), the flow is choked:
+\`\`\`
+Use choked Cv formula with P1 instead of ΔP
+\`\`\`
+
+## Steam Sizing
+
+### Saturated Steam
+\`\`\`
+Cv = W / (63.5 × Fp) × √(1 / (ΔP × P2))
+
+Where:
+W = Steam flow rate (lb/hr)
+\`\`\`
+
+### Superheated Steam
+Add superheat correction factor:
+\`\`\`
+Cv = W / (63.5 × Fp) × √(1 / (ΔP × P2)) × Fsh
+\`\`\`
+
+## Valve Sizing Steps
+
+1. **Define process conditions**: Flow, pressure, temperature, fluid properties
+2. **Calculate Cv requirement** using appropriate formula
+3. **Select valve type**: Globe, ball, butterfly based on application
+4. **Check for cavitation**: Compare operating ΔP vs. critical ΔP
+5. **Check noise level**: Use IEC 60534-8-3 for aerodynamic noise
+6. **Verify rangeability**: Ensure valve can handle turndown ratio
+7. **Select actuator**: Based on torque/force requirements
+
+## Common Sizing Mistakes
+
+| Mistake | Consequence | Solution |
+|---------|-------------|----------|
+| Ignoring FL factor | Oversized valve, poor control | Use FL-corrected formula |
+| Not checking choked flow | Incorrect Cv, cavitation | Verify P2/P1 ratio |
+| Using wrong Cv formula | Undersized or oversized valve | Match formula to fluid type |
+| Ignoring piping effects | Incorrect Cv | Apply Fp factor |
+| Oversizing for "safety" | Poor control at low flows | Size for normal operating conditions |
+
+## Valve Characteristics
+
+| Characteristic | Flow Curve | Best For |
+|---------------|-----------|----------|
+| Linear | Equal increment per % travel | Liquid level control |
+| Equal Percentage | Equal % change per % travel | Pressure control, gas |
+| Quick Opening | Fast opening, linear | On/off, emergency |
+
+## Control Valve Noise
+
+| Noise Level | Acceptable? | Action Required |
+|-------------|-------------|-----------------|
+| <85 dBA | Acceptable | None |
+| 85-95 dBA | Marginal | Consider low-noise trim |
+| >95 dBA | Unacceptable | Use special trim or multi-stage |
+
+## ValveSpecs Pro Resources
+
+Browse our control valve specifications. Filter by Cv range, valve type, and application to find the right control valve for your process.
+`
+  },
+  {
+    slug: "valve-material-guide-for-corrosive-media",
+    title: "Valve Material Selection for Corrosive Media: Complete Compatibility Guide",
+    metaTitle: "Valve Material Selection for Corrosive Media | ValveSpecs Pro",
+    metaDescription: "Valve material compatibility guide for corrosive chemicals: stainless steel, duplex, Hastelloy, titanium. Include chemical resistance charts and selection criteria for aggressive media.",
+    date: "2026-06-18",
+    author: "ValveSpecs Engineering Team",
+    category: "guide",
+    tags: ["material", "corrosion", "stainless steel", "Hastelloy", "chemical resistance"],
+    summary: "Selecting the right valve material for corrosive media is critical for equipment longevity and safety. This guide covers stainless steel grades, exotic alloys, and chemical compatibility for common industrial chemicals.",
+    content: `
+## Material Selection Overview
+
+| Material | UNS Number | Max Temp | Corrosion Resistance | Cost Factor |
+|----------|-----------|----------|---------------------|-------------|
+| Carbon Steel (WCB) | J02502 | 425°C | Poor in corrosive | 1.0x |
+| 304 SS (CF8) | J92600 | 425°C | Good general | 2.5x |
+| 316 SS (CF8M) | J92900 | 425°C | Better (Mo content) | 3.0x |
+| Duplex (CD3MN) | J93370 | 315°C | Excellent | 5.0x |
+| Hastelloy C276 | N10276 | 675°C | Outstanding | 15x |
+| Titanium (Grade 2) | R50400 | 315°C | Seawater, chlorides | 20x |
+| Monel 400 | N04400 | 450°C | HF acid, seawater | 12x |
+
+## Chemical Compatibility Chart
+
+### Acids
+
+| Chemical | 304 SS | 316 SS | Duplex | Hastelloy C276 | Titanium |
+|----------|--------|--------|--------|----------------|----------|
+| Sulfuric (dilute) | Fair | Good | Good | Excellent | Fair |
+| Sulfuric (concentrated) | Poor | Poor | Fair | Good | Poor |
+| Hydrochloric | Poor | Poor | Poor | Excellent | Fair |
+| Nitric | Good | Good | Good | Good | Good |
+| Phosphoric | Good | Good | Good | Excellent | Good |
+| Acetic | Good | Good | Good | Excellent | Good |
+| Formic | Fair | Good | Good | Excellent | Good |
+
+### Alkalis
+
+| Chemical | 304 SS | 316 SS | Duplex | Hastelloy C276 | Titanium |
+|----------|--------|--------|--------|----------------|----------|
+| Sodium Hydroxide (<50%) | Good | Good | Good | Good | Good |
+| Sodium Hydroxide (>50%) | Fair | Fair | Good | Good | Fair |
+| Potassium Hydroxide | Good | Good | Good | Good | Good |
+| Ammonia | Good | Good | Good | Good | Good |
+
+### Chlorides
+
+| Chemical | 304 SS | 316 SS | Duplex | Hastelloy C276 | Titanium |
+|----------|--------|--------|--------|----------------|----------|
+| NaCl (seawater) | Poor (pitting) | Fair | Good | Excellent | Excellent |
+| HCl (dilute) | Poor | Poor | Poor | Excellent | Fair |
+| Chlorinated water | Poor | Fair | Good | Excellent | Excellent |
+
+## Material Selection by Industry
+
+### Oil & Gas
+- **Standard service**: Carbon Steel (WCB/WCC)
+- **Sour service (H2S)**: NACE MR0175 compliant (HRC ≤ 22)
+- **Seawater**: Duplex or Super Duplex (CD3MN/CE3MN)
+- **High temperature**: Chrome-moly (WC6/WC9/C5)
+
+### Chemical Processing
+- **Dilute acids**: 316 SS (CF8M)
+- **Strong acids**: Hastelloy C276 or Alloy 20
+- **Chlorinated solvents**: Hastelloy or Titanium
+- **Caustic service**: Nickel 200/201
+
+### Water Treatment
+- **Potable water**: 304 SS or ductile iron
+- **Desalination**: Super Duplex (CE3MN)
+- **Wastewater**: 316 SS or Duplex
+
+### Food & Pharmaceutical
+- **Sanitary applications**: 316L SS (low carbon)
+- **FDA/EC 1935/2004 compliance**: Electropolished surfaces
+
+## Material Selection Decision Tree
+
+1. **Is the media corrosive?** → If no, use Carbon Steel
+2. **Is it seawater or chloride-rich?** → Duplex or Titanium
+3. **Is it a strong acid (HCl, H2SO4 concentrated)?** → Hastelloy C276
+4. **Is it a dilute acid?** → 316 SS may be sufficient
+5. **Is high temperature involved (>425°C)?** → Chrome-moly or nickel alloys
+6. **Is cost the primary concern?** → 304 SS or 316 SS with corrosion allowance
+
+## Cost vs. Lifetime Analysis
+
+| Material | Initial Cost | Expected Life (seawater) | 20-Year TCO |
+|----------|-------------|-------------------------|-------------|
+| Carbon Steel | $1,000 | 1-2 years | $15,000 |
+| 316 SS | $3,000 | 5-8 years | $8,000 |
+| Duplex | $5,000 | 15-20 years | $5,500 |
+| Super Duplex | $8,000 | 25+ years | $8,500 |
+| Titanium | $15,000 | 30+ years | $15,500 |
+
+## ValveSpecs Pro Resources
+
+Search our valve database by body material to find valves compatible with your process media. Filter by brand, valve type, and material grade.
+`
   }
 ];
 

@@ -12,18 +12,36 @@ const PORT = process.env.PORT || 3001
 // Creem API config
 const CREEM_API_KEY = process.env.CREEM_API_KEY || ''
 const CREEM_WEBHOOK_SECRET = process.env.CREEM_WEBHOOK_SECRET || ''
-const CREEM_BASE_URL = process.env.NODE_ENV === 'test'
-  ? 'https://test-api.creem.io/v1'
-  : 'https://api.creem.io/v1'
+const CREEM_BASE_URL = 'https://api.creem.io/v1'
 
-// Middleware
+// Middleware – CORS: tighten to specific frontend URL, never allow all (*)
 const allowedOrigins = process.env.FRONTEND_URL
   ? process.env.FRONTEND_URL.split(',')
-  : []
+  : ['https://valve.tradesxchange.com']
 app.use(cors({
-  origin: allowedOrigins.length > 0 ? allowedOrigins : true,
+  origin: (origin, callback) => {
+    // Allow requests with no origin (same-site, curl, etc.) or explicit allowlist
+    if (!origin || allowedOrigins.some(o => o === origin || o === '*')) {
+      return callback(null, true)
+    }
+    return callback(new Error('CORS policy: origin not allowed'))
+  },
   credentials: true
 }))
+
+// Security headers middleware
+app.use((req, res, next) => {
+  res.setHeader('X-Content-Type-Options', 'nosniff')
+  res.setHeader('X-Frame-Options', 'DENY')
+  res.setHeader('X-XSS-Protection', '1; mode=block')
+  res.setHeader('Referrer-Policy', 'strict-origin-when-cross-origin')
+  res.setHeader(
+    'Content-Security-Policy',
+    "default-src 'self'; script-src 'self' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://*.supabase.co"
+  )
+  res.setHeader('Permissions-Policy', 'camera=(), microphone=(), geolocation=()')
+  next()
+})
 app.use(express.json())
 app.use(express.raw({ type: 'application/json' }))
 
@@ -341,9 +359,25 @@ app.get('/api/valves/search', async (req, res) => {
       }
     }
 
-    // Brand filter
+    // Brand filter: support both UUID and slug
     if (brand_id) {
-      query = query.eq('brand_id', brand_id)
+      // Check if brand_id looks like a UUID
+      const uuidRegex = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i
+      if (uuidRegex.test(brand_id)) {
+        query = query.eq('brand_id', brand_id)
+      } else {
+        // Treat as slug: lookup the brand UUID first
+        const { data: brandData, error: brandError } = await supabase
+          .from('brands')
+          .select('id')
+          .eq('slug', brand_id)
+          .single()
+        if (brandError || !brandData) {
+          // Brand not found: return empty result
+          return res.json({ data: [], count: 0, pageTotal: 0 })
+        }
+        query = query.eq('brand_id', brandData.id)
+      }
     }
 
     // Valve type filter
@@ -398,7 +432,7 @@ app.get('/api/valves/search', async (req, res) => {
 app.get('/api/valves/filters', async (req, res) => {
   try {
     const [brandsRes, typesRes] = await Promise.all([
-      supabase.from('brands').select('id, name, country').order('name'),
+      supabase.from('brands').select('id, name, country, slug').order('name'),
       supabase.from('valve_types').select('id, name, type_key').order('name')
     ])
 

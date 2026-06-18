@@ -4,6 +4,15 @@ interface Env {
   RESEND_API_KEY: string
 }
 
+function escapeHtml(str: string): string {
+  return str
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;')
+}
+
 async function verifyJWT(token: string, env: Env): Promise<{ valid: boolean; userId?: string }> {
   try {
     const supabaseUrl = env.SUPABASE_URL?.trim()
@@ -126,24 +135,24 @@ export async function onRequest(context: { request: Request; env: Env }) {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          from: 'ValveSpecs Pro <onboarding@resend.dev>',
+          from: 'ValveSpecs Pro <noreply@tradesxchange.com>',
           to: ['nnzw@qq.com'],
-          subject: `New Inquiry: ${brandName || 'Unknown Brand'} - ${valveType || 'N/A'}`,
+          subject: `New Inquiry: ${escapeHtml(brandName || 'Unknown Brand')} - ${escapeHtml(valveType || 'N/A')}`,
           html: `
             <h2>New Valve Inquiry Received</h2>
             <table cellpadding="6" cellspacing="0" style="border-collapse:collapse;font-family:sans-serif;">
-              <tr><td style="font-weight:bold;border:1px solid #ddd;background:#f5f5f5;">Buyer Name</td><td style="border:1px solid #ddd;">${buyer_name}</td></tr>
-              <tr><td style="font-weight:bold;border:1px solid #ddd;background:#f5f5f5;">Email</td><td style="border:1px solid #ddd;">${buyer_email}</td></tr>
-              <tr><td style="font-weight:bold;border:1px solid #ddd;background:#f5f5f5;">Company</td><td style="border:1px solid #ddd;">${buyer_company || '-'}</td></tr>
-              <tr><td style="font-weight:bold;border:1px solid #ddd;background:#f5f5f5;">Phone</td><td style="border:1px solid #ddd;">${buyer_phone || '-'}</td></tr>
-              <tr><td style="font-weight:bold;border:1px solid #ddd;background:#f5f5f5;">Country</td><td style="border:1px solid #ddd;">${buyer_country || '-'}</td></tr>
-              <tr><td style="font-weight:bold;border:1px solid #ddd;background:#f5f5f5;">Brand</td><td style="border:1px solid #ddd;">${brandName || '-'}</td></tr>
-              <tr><td style="font-weight:bold;border:1px solid #ddd;background:#f5f5f5;">Model</td><td style="border:1px solid #ddd;">${valveModel || 'N/A'}</td></tr>
-              <tr><td style="font-weight:bold;border:1px solid #ddd;background:#f5f5f5;">Type</td><td style="border:1px solid #ddd;">${valveType || 'N/A'}</td></tr>
-              <tr><td style="font-weight:bold;border:1px solid #ddd;background:#f5f5f5;">Quantity</td><td style="border:1px solid #ddd;">${body.quantity || 'N/A'}</td></tr>
-              <tr><td style="font-weight:bold;border:1px solid #ddd;background:#f5f5f5;">Target Price</td><td style="border:1px solid #ddd;">${body.target_price || 'N/A'}</td></tr>
-              <tr><td style="font-weight:bold;border:1px solid #ddd;background:#f5f5f5;">Message</td><td style="border:1px solid #ddd;">${inquiry_message || '-'}</td></tr>
-              <tr><td style="font-weight:bold;border:1px solid #ddd;background:#f5f5f5;">Technical Requirements</td><td style="border:1px solid #ddd;">${technical_requirements || '-'}</td></tr>
+              <tr><td style="font-weight:bold;border:1px solid #ddd;background:#f5f5f5;">Buyer Name</td><td style="border:1px solid #ddd;">${escapeHtml(buyer_name)}</td></tr>
+              <tr><td style="font-weight:bold;border:1px solid #ddd;background:#f5f5f5;">Email</td><td style="border:1px solid #ddd;">${escapeHtml(buyer_email)}</td></tr>
+              <tr><td style="font-weight:bold;border:1px solid #ddd;background:#f5f5f5;">Company</td><td style="border:1px solid #ddd;">${escapeHtml(buyer_company || '-')}</td></tr>
+              <tr><td style="font-weight:bold;border:1px solid #ddd;background:#f5f5f5;">Phone</td><td style="border:1px solid #ddd;">${escapeHtml(buyer_phone || '-')}</td></tr>
+              <tr><td style="font-weight:bold;border:1px solid #ddd;background:#f5f5f5;">Country</td><td style="border:1px solid #ddd;">${escapeHtml(buyer_country || '-')}</td></tr>
+              <tr><td style="font-weight:bold;border:1px solid #ddd;background:#f5f5f5;">Brand</td><td style="border:1px solid #ddd;">${escapeHtml(brandName || '-')}</td></tr>
+              <tr><td style="font-weight:bold;border:1px solid #ddd;background:#f5f5f5;">Model</td><td style="border:1px solid #ddd;">${escapeHtml(valveModel || 'N/A')}</td></tr>
+              <tr><td style="font-weight:bold;border:1px solid #ddd;background:#f5f5f5;">Type</td><td style="border:1px solid #ddd;">${escapeHtml(valveType || 'N/A')}</td></tr>
+              <tr><td style="font-weight:bold;border:1px solid #ddd;background:#f5f5f5;">Quantity</td><td style="border:1px solid #ddd;">${escapeHtml(body.quantity || 'N/A')}</td></tr>
+              <tr><td style="font-weight:bold;border:1px solid #ddd;background:#f5f5f5;">Target Price</td><td style="border:1px solid #ddd;">${escapeHtml(body.target_price || 'N/A')}</td></tr>
+              <tr><td style="font-weight:bold;border:1px solid #ddd;background:#f5f5f5;">Message</td><td style="border:1px solid #ddd;">${escapeHtml(inquiry_message || '-')}</td></tr>
+              <tr><td style="font-weight:bold;border:1px solid #ddd;background:#f5f5f5;">Technical Requirements</td><td style="border:1px solid #ddd;">${escapeHtml(technical_requirements || '-')}</td></tr>
             </table>
           `,
         }),

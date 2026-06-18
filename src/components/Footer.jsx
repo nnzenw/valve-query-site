@@ -31,6 +31,10 @@ export default function Footer() {
             <button onClick={() => navigate('/blog')} className="hover:text-blue-600 cursor-pointer">Blog</button>
             <span className="text-gray-300">|</span>
             <a href="/privacy" className="hover:text-blue-600">Privacy Policy</a>
+            <span className="text-gray-300">|</span>
+            <a href="/terms" className="hover:text-blue-600">Terms of Service</a>
+            <span className="text-gray-300">|</span>
+            <a href="/about" className="hover:text-blue-600">About</a>
           </div>
 
           {/* Copyright */}

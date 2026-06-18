@@ -8,8 +8,8 @@ interface Env {
 
 // Plan map: Creem Product ID -> plan config
 const PLAN_MAP: Record<string, { plan_id: string; interval: string; type: string }> = {
-  'prod_6Ty5aiWQZ2TRXS8b1dvHVu': { plan_id: 'pro', interval: 'month', type: 'user' },
-  'prod_3rh3lkbGWGWvgF8IqAOdDU': { plan_id: 'pro', interval: 'year', type: 'user' },
+  'prod_1l8LO5O0WveOMuAIF1ybDu': { plan_id: 'pro', interval: 'month', type: 'user' },
+  'prod_bjLZnzAr8f2p9IqQHbofW': { plan_id: 'pro', interval: 'year', type: 'user' },
 }
 
 export async function onRequest(context: { request: Request; env: Env }) {
@@ -23,7 +23,9 @@ export async function onRequest(context: { request: Request; env: Env }) {
   }
 
   const CREEM_API_KEY = env.CREEM_API_KEY?.trim()
-  const CREEM_BASE_URL = 'https://test-api.creem.io/v1'
+  const CREEM_BASE_URL = (CREEM_API_KEY?.startsWith('sk_test_'))
+    ? 'https://test-api.creem.io/v1'
+    : 'https://api.creem.io/v1'
 
   try {
     const body = await request.json()
@@ -44,7 +46,7 @@ export async function onRequest(context: { request: Request; env: Env }) {
       })
     }
 
-    const frontendUrl = env.FRONTEND_URL || 'https://valve.mytoolshub.cc.cd'
+    const frontendUrl = env.FRONTEND_URL || 'https://valve.tradesxchange.com'
 
     const checkoutResponse = await fetch(`${CREEM_BASE_URL}/checkouts`, {
       method: 'POST',

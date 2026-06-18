@@ -5,8 +5,8 @@ interface Env {
 }
 
 const PRODUCT_INTERVAL_MAP: Record<string, string> = {
-  'prod_6Ty5aiWQZ2TRXS8b1dvHVu': 'month',
-  'prod_3rh3lkbGWGWvgF8IqAOdDU': 'year',
+  'prod_1l8LO5O0WveOMuAIF1ybDu': 'month',
+  'prod_bjLZnzAr8f2p9IqQHbofW': 'year',
 }
 
 async function verifyWebhookSignature(

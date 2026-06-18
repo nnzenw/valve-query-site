@@ -1,9 +1,11 @@
 import { useState, useEffect } from 'react'
 import { X, Mail, Phone, Building, Globe, Calendar, DollarSign, MessageSquare, Check } from 'lucide-react'
+import { useAuth } from '../contexts/AuthContext'
 
 const BACKEND_URL = import.meta.env.VITE_BACKEND_URL || ''
 
 export default function InquiryModal({ isOpen, onClose, brandId, brandName, valveSpecId, valveModel, valveType }) {
+  const { user } = useAuth()
   const [loading, setLoading] = useState(false)
   const [submitted, setSubmitted] = useState(false)
   const [formData, setFormData] = useState({
@@ -24,14 +26,14 @@ export default function InquiryModal({ isOpen, onClose, brandId, brandName, valv
     if (isOpen) {
       setFormData(prev => ({
         ...prev,
-        buyer_name: localStorage.getItem('inquiry_buyer_name') || '',
-        buyer_email: localStorage.getItem('inquiry_buyer_email') || '',
+        buyer_name: localStorage.getItem('inquiry_buyer_name') || user?.user_metadata?.name || '',
+        buyer_email: localStorage.getItem('inquiry_buyer_email') || user?.email || '',
         buyer_company: localStorage.getItem('inquiry_buyer_company') || '',
         buyer_phone: localStorage.getItem('inquiry_buyer_phone') || '',
         buyer_country: localStorage.getItem('inquiry_buyer_country') || ''
       }))
     }
-  }, [isOpen])
+  }, [isOpen, user])
 
   const handleChange = (e) => {
     const { name, value } = e.target

@@ -1,7 +1,7 @@
 import { HelpCircle } from 'lucide-react'
 import Footer from './components/Footer';
 import { useState, useEffect, useCallback, Suspense, lazy } from 'react'
-import { BrowserRouter, Routes, Route, useNavigate, useParams, useSearchParams } from 'react-router-dom'
+import { BrowserRouter, Routes, Route, useNavigate, useParams, useSearchParams, Navigate } from 'react-router-dom'
 import { HelmetProvider } from 'react-helmet-async'
 import SEO from './components/seo/SEO'
 import { supabase } from './lib/supabase'
@@ -32,6 +32,9 @@ const BlogPostPage = lazy(() => import('./pages/BlogPostPage'))
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage'))
 const LoginPage = lazy(() => import('./pages/LoginPage'))
 const RegisterPage = lazy(() => import('./pages/RegisterPage'))
+const PrivacyPolicy = lazy(() => import('./pages/PrivacyPolicy'))
+const TermsOfService = lazy(() => import('./pages/TermsOfService'))
+const AboutPage = lazy(() => import('./pages/AboutPage'))
 
 // TypeScript interfaces
 interface SearchParams {
@@ -257,7 +260,7 @@ function HomePage() {
             ? `Search: ${searchParams.keyword}`
             : 'Global Industrial Valve Specifications Database'}
         description="Search and compare global industrial valve specifications covering 100+ brands including KITZ, KSB, Fisher. Complete technical data for ball valves, butterfly valves, gate valves, globe valves."
-        canonical={`https://valvespecs.pro${window.location.search}`}
+        canonical={`https://valve.tradesxchange.com${window.location.search}`}
         schemaData={homeFaqSchema}
       />
 
@@ -466,7 +469,7 @@ function HomePage() {
       
       {showFeedback && (
         <Suspense fallback={null}>
-          <FeedbackModal onClose={() => setShowFeedback(false)} />
+          <FeedbackModal isOpen={showFeedback} onClose={() => setShowFeedback(false)} />
         </Suspense>
       )}
     </div>
@@ -480,8 +483,8 @@ function ValveDetailWrapper() {
 }
 
 function BrandDetailWrapper() {
-  const { id } = useParams()
-  return <BrandDetailPage brandId={id} />
+  const { slug } = useParams()
+  return <BrandDetailPage brandId={slug} />
 }
 
 function BlogPostWrapper() {
@@ -498,12 +501,16 @@ export default function App() {
             <Routes>
               <Route path="/" element={<HomePage />} />
               <Route path="/valve/:id" element={<ValveDetailWrapper />} />
-              <Route path="/brand/:id" element={<BrandDetailWrapper />} />
+              <Route path="/brand/:slug" element={<BrandDetailWrapper />} />
               <Route path="/brands" element={<BrandsPage />} />
+              <Route path="/suppliers" element={<Navigate to="/brands" replace />} />
               <Route path="/blog" element={<BlogListPage />} />
               <Route path="/blog/:slug" element={<BlogPostWrapper />} />
               <Route path="/login" element={<LoginPage />} />
               <Route path="/register" element={<RegisterPage />} />
+              <Route path="/privacy" element={<PrivacyPolicy />} />
+              <Route path="/terms" element={<TermsOfService />} />
+              <Route path="/about" element={<AboutPage />} />
               <Route path="*" element={<NotFoundPage />} />
             </Routes>
           </Suspense>

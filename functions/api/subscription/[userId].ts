@@ -3,6 +3,27 @@ interface Env {
   SUPABASE_SERVICE_KEY: string
 }
 
+async function verifyJWT(token: string, env: Env): Promise<{ valid: boolean; userId?: string }> {
+  try {
+    const supabaseUrl = env.SUPABASE_URL?.trim()
+    const supabaseKey = env.SUPABASE_SERVICE_KEY?.trim()
+
+    const res = await fetch(`${supabaseUrl}/auth/v1/user`, {
+      headers: {
+        'apikey': supabaseKey,
+        'Authorization': `Bearer ${token}`,
+      },
+    })
+
+    if (!res.ok) return { valid: false }
+
+    const user = await res.json()
+    return { valid: true, userId: user.id }
+  } catch {
+    return { valid: false }
+  }
+}
+
 export async function onRequest(context: { request: Request; env: Env; params: { userId: string } }) {
   const { request, env, params } = context
   const userId = params.userId
@@ -20,6 +41,24 @@ export async function onRequest(context: { request: Request; env: Env; params: {
   if (!supabaseUrl || !supabaseKey) {
     return new Response(JSON.stringify({ error: 'Supabase configuration missing' }), {
       status: 500,
+      headers: { 'Content-Type': 'application/json' },
+    })
+  }
+
+  // Require Bearer token and verify it belongs to the requested userId
+  const authHeader = request.headers.get('Authorization') || ''
+  if (!authHeader.startsWith('Bearer ')) {
+    return new Response(JSON.stringify({ error: 'Authorization required' }), {
+      status: 401,
+      headers: { 'Content-Type': 'application/json' },
+    })
+  }
+
+  const token = authHeader.slice(7)
+  const result = await verifyJWT(token, env)
+  if (!result.valid || result.userId !== userId) {
+    return new Response(JSON.stringify({ error: 'Unauthorized' }), {
+      status: 403,
       headers: { 'Content-Type': 'application/json' },
     })
   }
