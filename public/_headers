@@ -1,0 +1,27 @@
+# =============================================================================
+# Cloudflare Pages - Custom Headers
+# https://developers.cloudflare.com/pages/platform/headers/
+# =============================================================================
+
+# Apply security headers to all routes
+/*
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: DENY
+  X-XSS-Protection: 1; mode=block
+  Referrer-Policy: strict-origin-when-cross-origin
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://*.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://*.supabase.co https://api.creem.io; frame-ancestors 'none'
+  Permissions-Policy: camera=(), microphone=(), geolocation=()
+
+# Cache static assets with hash in filename (long-term)
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Don't cache HTML (so updates are reflected immediately)
+/*.html
+  Cache-Control: no-cache
+
+/sitemap.xml
+  Cache-Control: no-cache
+
+/robots.txt
+  Cache-Control: no-cache
