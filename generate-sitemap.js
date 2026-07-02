@@ -23,7 +23,7 @@ if (!supabaseUrl || !supabaseAnonKey) {
   console.warn('⚠️ Missing Supabase config, using static sitemap')
 }
 
-const BASE_URL = 'https://valve.mytoolshub.cc.cd'
+const BASE_URL = 'https://valve.tradesxchange.com'
 
 // If no Supabase config, generate static sitemap
 if (!supabaseUrl || !supabaseAnonKey) {
@@ -80,7 +80,7 @@ async function generateSitemap() {
   // Fetch all brands
   const { data: brands, error: brandsError } = await supabase
     .from('brands')
-    .select('id, name')
+    .select('id, name, slug')
     .order('name')
 
   if (brandsError) {
@@ -144,10 +144,11 @@ async function generateSitemap() {
   <!-- Brand Pages -->
 `
 
-  // Add brand pages
+  // Add brand pages (use slug if available, fallback to id)
   brands.forEach(brand => {
+    const brandUrl = brand.slug ? `/brand/${brand.slug}` : `/brand/${brand.id}`
     sitemap += `  <url>
-    <loc>${BASE_URL}/brand/${brand.id}</loc>
+    <loc>${BASE_URL}${brandUrl}</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>

@@ -34,7 +34,7 @@ export default function ValveCard({ valve, onClick, onFeedback }) {
           )}
           <div>
             <h3 className="text-lg font-semibold text-gray-900 group-hover:text-blue-600 transition-colors">
-              {valveType?.name || valve.type || 'Unknown'}
+              {valve.model || valveType?.name || valve.type || 'Unknown'}
             </h3>
             <p className="text-sm text-gray-600 mt-1">{brand?.name}</p>
           </div>

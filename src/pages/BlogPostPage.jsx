@@ -1,4 +1,4 @@
-import { Helmet } from 'react-helmet-async'
+﻿import { Helmet } from 'react-helmet-async'
 import SEO from '../components/seo/SEO'
 import { ArrowLeft, Calendar, Tag } from 'lucide-react'
 import { getPostBySlug } from '../data/blogPosts'
@@ -30,7 +30,7 @@ export default function BlogPostPage({ slug }) {
         <div className="text-center">
           <h1 className="text-2xl font-bold text-gray-900 mb-2">Article Not Found</h1>
           <p className="text-gray-500 mb-4">The requested blog post could not be found.</p>
-          <a href="/blog" onClick={goBlog} className="text-blue-600 hover:underline">← Back to Blog</a>
+          <a href="/blog" onClick={goBlog} className="text-blue-600 hover:underline">鈫?Back to Blog</a>
         </div>
       </div>
     )
@@ -93,7 +93,7 @@ export default function BlogPostPage({ slug }) {
       <SEO
         title={post.title}
         description={post.metaDescription}
-        canonical={`https://valvespecs.pro/blog/${slug}`}
+        canonical={`https://valve.tradesxchange.com/blog/${slug}`}
         schemaData={{
           "@context": "https://schema.org",
           "@type": "Article",
@@ -101,16 +101,16 @@ export default function BlogPostPage({ slug }) {
           "description": post.summary,
           "author": { "@type": "Person", "name": post.author },
           "datePublished": post.date,
-          "url": `https://valvespecs.pro/blog/${slug}`,
+          "url": `https://valve.tradesxchange.com/blog/${slug}`,
           "publisher": {
             "@type": "Organization",
             "name": "ValveSpecs Pro"
           }
         }}
         breadcrumb={[
-          { name: 'Home', url: 'https://valvespecs.pro' },
-          { name: 'Blog', url: 'https://valvespecs.pro/blog' },
-          { name: post.title, url: `https://valvespecs.pro/blog/${slug}` }
+          { name: 'Home', url: 'https://valve.tradesxchange.com' },
+          { name: 'Blog', url: 'https://valve.tradesxchange.com/blog' },
+          { name: post.title, url: `https://valve.tradesxchange.com/blog/${slug}` }
         ]}
       />
 
@@ -132,7 +132,7 @@ export default function BlogPostPage({ slug }) {
               <div className="flex items-center gap-3 mb-4">
                 <Calendar className="w-4 h-4 text-gray-400" />
                 <span className="text-sm text-gray-400">{post.date}</span>
-                <span className="text-sm text-gray-400">·</span>
+                <span className="text-sm text-gray-400">路</span>
                 <span className="text-sm text-gray-400">{post.author}</span>
               </div>
               <h1 className="text-3xl font-bold text-gray-900 mb-4">{post.title}</h1>

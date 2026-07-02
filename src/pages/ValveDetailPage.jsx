@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+﻿import { useState, useEffect } from 'react'
 import { ArrowLeft, Check, Star, ExternalLink, ChevronDown, ChevronUp, Send, Lock } from 'lucide-react'
 import SEO from '../components/seo/SEO'
 import InquiryModal from '../components/InquiryModal'
@@ -167,13 +167,13 @@ export default function ValveDetailPage({ valveId }) {
       <SEO
         title={pageTitle}
         description={description}
-        canonical={`https://valvespecs.pro/valve/${valve.id}`}
+        canonical={`https://valve.tradesxchange.com/valve/${valve.id}`}
         schemaData={schema}
         breadcrumb={[
-          { name: 'Home', url: 'https://valvespecs.pro' },
-          { name: valve.brands?.name || 'Brand', url: `https://valvespecs.pro/brand/${valve.brands?.name || ''}` },
-          { name: valve.valve_types?.name || 'Type', url: `https://valvespecs.pro/type/${valve.valve_types?.type_key || ''}` },
-          { name: `${valve.model || 'Model'}`, url: `https://valvespecs.pro/valve/${valve.id}` }
+          { name: 'Home', url: 'https://valve.tradesxchange.com' },
+          { name: valve.brands?.name || 'Brand', url: `https://valve.tradesxchange.com/brand/${valve.brands?.name || ''}` },
+          { name: valve.valve_types?.name || 'Type', url: `https://valve.tradesxchange.com/type/${valve.valve_types?.type_key || ''}` },
+          { name: `${valve.model || 'Model'}`, url: `https://valve.tradesxchange.com/valve/${valve.id}` }
         ]}
       />
 

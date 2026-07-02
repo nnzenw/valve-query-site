@@ -1,12 +1,9 @@
-import { useState } from 'react'
-import { X, Trash2, Download, FileText, ClipboardList, AlertCircle } from 'lucide-react'
+import { X, Trash2, Download, FileText, ClipboardList } from 'lucide-react'
 import { useComparison } from '../lib/ComparisonContext'
 import { toast } from 'react-hot-toast'
-import { getHealthScoreColor } from '../lib/utils'
 
-export default function ComparisonPage({ onClose, valves }) {
+export default function ComparisonPage({ onClose }) {
   const { comparisonList, removeFromComparison, clearComparison } = useComparison()
-  const [showReport, setShowReport] = useState(false)
 
   if (comparisonList.length === 0) {
     return (

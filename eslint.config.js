@@ -1,6 +1,6 @@
 export default [
   {
-    files: ["src/**/*.{js,jsx}"],
+    files: ["src/**/*.{js,jsx,ts,tsx}"],
     languageOptions: {
       ecmaVersion: "latest",
       sourceType: "module",
@@ -10,6 +10,9 @@ export default [
     },
     plugins: {
       react: (await import("eslint-plugin-react")).default
+    },
+    settings: {
+      react: { version: "detect" }
     },
     rules: {
       "react/jsx-uses-react": "off",

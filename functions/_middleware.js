@@ -33,6 +33,7 @@ function hasPrerenderedPage(pathname) {
   if (pathname === '/') return true
   if (pathname.startsWith('/brand/')) return true
   if (pathname.startsWith('/valve/')) return true
+  if (pathname === '/community' || pathname === '/community/') return true
   return false
 }
 

@@ -1,4 +1,4 @@
-import { useNavigate } from 'react-router-dom'
+﻿import { useNavigate } from 'react-router-dom'
 import { Helmet } from 'react-helmet-async'
 import SEO from '../components/seo/SEO'
 import { Calendar, Tag, ArrowRight } from 'lucide-react'
@@ -56,19 +56,19 @@ export default function BlogListPage(): JSX.Element {
     "@type": "Blog",
     "name": "Valve Tech Blog",
     "description": "Valve selection guides, technical comparisons, and industry knowledge for engineers and procurement professionals.",
-    "url": "https://valvespecs.pro/blog",
+    "url": "https://valve.tradesxchange.com/blog",
     "blogPost": (blogPosts as BlogPost[]).map((post) => ({
       "@type": "BlogPosting",
       "headline": post.title,
-      "url": `https://valvespecs.pro/blog/${post.slug}`,
+      "url": `https://valve.tradesxchange.com/blog/${post.slug}`,
       "datePublished": post.date,
       "author": { "@type": "Person", "name": post.author }
     }))
   }
 
   const breadcrumb: BreadcrumbItem[] = [
-    { name: 'Home', url: 'https://valvespecs.pro' },
-    { name: 'Blog', url: 'https://valvespecs.pro/blog' }
+    { name: 'Home', url: 'https://valve.tradesxchange.com' },
+    { name: 'Blog', url: 'https://valve.tradesxchange.com/blog' }
   ]
 
   return (
@@ -76,7 +76,7 @@ export default function BlogListPage(): JSX.Element {
       <SEO
         title="Valve Tech Blog"
         description="Valve selection guides, butterfly vs ball valve comparisons, material selection, parameter interpretation. Practical technical articles to help engineers master valve knowledge."
-        canonical="https://valvespecs.pro/blog"
+        canonical="https://valve.tradesxchange.com/blog"
         schemaData={schemaData}
         breadcrumb={breadcrumb}
       />
@@ -84,7 +84,7 @@ export default function BlogListPage(): JSX.Element {
       <div className="min-h-screen bg-gray-50">
         <header className="bg-white shadow-sm">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center gap-4">
-            <a href="/" onClick={goHome} className="text-blue-600 hover:underline text-sm">← Home</a>
+            <a href="/" onClick={goHome} className="text-blue-600 hover:underline text-sm">鈫?Home</a>
           </div>
         </header>
 
@@ -103,7 +103,7 @@ export default function BlogListPage(): JSX.Element {
                 <div className="flex items-center gap-3 mb-3">
                   <Calendar className="w-4 h-4 text-gray-400" />
                   <span className="text-sm text-gray-400">{post.date}</span>
-                  <span className="text-sm text-gray-400">·</span>
+                  <span className="text-sm text-gray-400">路</span>
                   <span className="text-sm text-gray-400">{post.author}</span>
                 </div>
                 <h2 className="text-xl font-semibold text-gray-900 group-hover:text-blue-600 transition-colors mb-2">

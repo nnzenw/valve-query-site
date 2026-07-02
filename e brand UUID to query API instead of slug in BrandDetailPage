@@ -1,0 +1,108 @@
+[1mdiff --git a/src/pages/BrandDetailPage.jsx b/src/pages/BrandDetailPage.jsx[m
+[1mindex c58fdc3..5ad85ca 100644[m
+[1m--- a/src/pages/BrandDetailPage.jsx[m
+[1m+++ b/src/pages/BrandDetailPage.jsx[m
+[36m@@ -1,9 +1,10 @@[m
+[31m-import { useState, useEffect } from 'react'[m
+[32m+[m[32m﻿import { useState, useEffect } from 'react'[m
+ import { Helmet } from 'react-helmet-async'[m
+ import SEO from '../components/seo/SEO'[m
+ import { ArrowLeft, Globe, Send } from 'lucide-react'[m
+ import ValveCard from '../components/ValveCard'[m
+ import InquiryModal from '../components/InquiryModal'[m
+[32m+[m[32mimport { supabase } from '../lib/supabase'[m
+ [m
+ const BACKEND_URL = import.meta.env.VITE_BACKEND_URL || ''[m
+ [m
+[36m@@ -31,18 +32,17 @@[m [mexport default function BrandDetailPage({ brandId }) {[m
+   const [showInquiry, setShowInquiry] = useState(false)[m
+ [m
+   const loadProducts = async (pageNum = 1, isPageChange = false) => {[m
+[32m+[m[32m    // 必须用 brandInfo.id (UUID) 查 API，不能用 slug[m
+[32m+[m[32m    const brandUuid = brandInfo?.id || brandId[m
+     try {[m
+       if (isPageChange) setPageLoading(true)[m
+       else setInitialLoading(true)[m
+       const offset = (pageNum - 1) * PAGE_SIZE[m
+[31m-      const res = await fetch(`${BACKEND_URL}/api/valves/search?brand_id=${brandId}&limit=${PAGE_SIZE}&offset=${offset}`)[m
+[32m+[m[32m      const res = await fetch(`${BACKEND_URL}/api/valves/search?brand_id=${brandUuid}&limit=${PAGE_SIZE}&offset=${offset}`)[m
+       if (res.ok) {[m
+         const data = await res.json()[m
+         setValves(data.data || [])[m
+         setTotalCount(data.count || 0)[m
+[31m-        if (!brandInfo && data.data?.length > 0 && data.data[0].brands) {[m
+[31m-          setBrandInfo(data.data[0].brands)[m
+[31m-        }[m
+       }[m
+     } catch (err) {[m
+       console.error('Failed to load brand products:', err)[m
+[36m@@ -52,11 +52,42 @@[m [mexport default function BrandDetailPage({ brandId }) {[m
+     }[m
+   }[m
+ [m
+[32m+[m[32m  // Load brand info by slug (for SEO and display, even if no products yet)[m
+   useEffect(() => {[m
+[31m-    setPage(1)[m
+[31m-    loadProducts(1, false)[m
+[32m+[m[32m    async function loadBrandInfo() {[m
+[32m+[m[32m      // Try to get brand info from the current brandInfo state or from API[m
+[32m+[m[32m      if (brandInfo) return[m
+[32m+[m[41m      [m
+[32m+[m[32m      // Query by slug via Supabase client (public read access)[m
+[32m+[m[32m      const { data, error } = await supabase[m
+[32m+[m[32m        .from('brands')[m
+[32m+[m[32m        .select('*')[m
+[32m+[m[32m        .eq('slug', brandId)[m
+[32m+[m[32m        .maybeSingle()[m
+[32m+[m[41m      [m
+[32m+[m[32m      if (data) {[m
+[32m+[m[32m        setBrandInfo(data)[m
+[32m+[m[32m      } else {[m
+[32m+[m[32m        // Fallback: try as UUID (backward compatibility)[m
+[32m+[m[32m        const { data: data2, error: error2 } = await supabase[m
+[32m+[m[32m          .from('brands')[m
+[32m+[m[32m          .select('*')[m
+[32m+[m[32m          .eq('id', brandId)[m
+[32m+[m[32m          .maybeSingle()[m
+[32m+[m[32m        if (data2) setBrandInfo(data2)[m
+[32m+[m[32m      }[m
+[32m+[m[32m    }[m
+[32m+[m[32m    loadBrandInfo()[m
+   }, [brandId])[m
+ [m
+[32m+[m[32m  // 等 brandInfo 加载完成后再查产品（需要 UUID 查 API）[m
+[32m+[m[32m  useEffect(() => {[m
+[32m+[m[32m    if (brandInfo?.id) {[m
+[32m+[m[32m      setPage(1)[m
+[32m+[m[32m      loadProducts(1, false)[m
+[32m+[m[32m    }[m
+[32m+[m[32m  }, [brandId, brandInfo?.id])[m
+[32m+[m
+   const handlePageChange = (newPage) => {[m
+     setPage(newPage)[m
+     loadProducts(newPage, true)[m
+[36m@@ -82,19 +113,19 @@[m [mexport default function BrandDetailPage({ brandId }) {[m
+       <SEO[m
+         title={brandInfo ? `${brandInfo.name} Valve Product Catalog` : 'Brand Valve Products'}[m
+         description={brandInfo?.description || 'Browse valve product catalog by brand. View technical specifications and parameters.'}[m
+[31m-        canonical={`https://valvespecs.pro/brand/${brandId}`}[m
+[32m+[m[32m        canonical={`https://valve.tradesxchange.com/brand/${brandId}`}[m
+         schemaData={brandInfo ? {[m
+           "@context": "https://schema.org",[m
+           "@type": "Brand",[m
+           "name": brandInfo.name,[m
+           "description": brandInfo.description || '',[m
+[31m-          "url": `https://valvespecs.pro/brand/${brandId}`,[m
+[32m+[m[32m          "url": `https://valve.tradesxchange.com/brand/${brandId}`,[m
+           "countryOfOrigin": brandInfo.country || undefined[m
+         } : undefined}[m
+         breadcrumb={[[m
+[31m-          { name: 'Home', url: 'https://valvespecs.pro' },[m
+[31m-          { name: 'Brands', url: 'https://valvespecs.pro/brands' },[m
+[31m-          { name: brandInfo?.name || 'Brand', url: `https://valvespecs.pro/brand/${brandId}` }[m
+[32m+[m[32m          { name: 'Home', url: 'https://valve.tradesxchange.com' },[m
+[32m+[m[32m          { name: 'Brands', url: 'https://valve.tradesxchange.com/brands' },[m
+[32m+[m[32m          { name: brandInfo?.name || 'Brand', url: `https://valve.tradesxchange.com/brand/${brandId}` }[m
+         ]}[m
+       />[m
+ [m

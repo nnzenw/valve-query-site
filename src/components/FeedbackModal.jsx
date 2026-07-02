@@ -1,9 +1,11 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { X, Mail, User, MessageSquare, Check, Send } from 'lucide-react'
+import { useAuth } from '../contexts/AuthContext'
 
 const BACKEND_URL = import.meta.env.VITE_BACKEND_URL || ''
 
 export default function FeedbackModal({ isOpen, onClose }) {
+  const { user } = useAuth()
   const [loading, setLoading] = useState(false)
   const [submitted, setSubmitted] = useState(false)
   const [formData, setFormData] = useState({
@@ -12,6 +14,16 @@ export default function FeedbackModal({ isOpen, onClose }) {
     subject: '',
     message: ''
   })
+
+  useEffect(() => {
+    if (isOpen && user) {
+      setFormData(prev => ({
+        ...prev,
+        name: user.user_metadata?.name || prev.name,
+        email: user.email || prev.email
+      }))
+    }
+  }, [isOpen, user])
 
   const handleChange = (e) => {
     const { name, value } = e.target
