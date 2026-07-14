@@ -48,7 +48,7 @@ export default function PrivacyPolicy() {
             <p>You can access, update, or delete your account at any time by contacting us or through your account settings.</p>
 
             <h2 className="text-xl font-semibold text-gray-900">7. Contact</h2>
-            <p>For privacy-related inquiries, contact us at nnzw@qq.com.</p>
+            <p>For privacy-related inquiries, contact us at nnzenw@126.com.</p>
           </div>
         </div>
       </div>

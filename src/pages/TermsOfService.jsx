@@ -52,7 +52,7 @@ export default function TermsOfService() {
             <p>We may update these terms from time to time. Continued use of the service constitutes acceptance of any changes.</p>
 
             <h2 className="text-xl font-semibold text-gray-900">9. Contact</h2>
-            <p>For questions about these Terms, contact us at nnzw@qq.com.</p>
+            <p>For questions about these Terms, contact us at nnzenw@126.com.</p>
           </div>
         </div>
       </div>

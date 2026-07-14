@@ -35,6 +35,8 @@ export default function Footer() {
             <a href="/terms" className="hover:text-blue-600">Terms of Service</a>
             <span className="text-gray-300">|</span>
             <a href="/about" className="hover:text-blue-600">About</a>
+            <span className="text-gray-300">|</span>
+            <a href="mailto:nnzenw@126.com" className="hover:text-blue-600">Support: nnzenw@126.com</a>
           </div>
 
           {/* Copyright */}

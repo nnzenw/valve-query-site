@@ -36,7 +36,7 @@ export default function AboutPage() {
             </ul>
 
             <h2 className="text-xl font-semibold text-gray-900">Contact Us</h2>
-            <p>For business inquiries, partnerships, or support, reach us at nnzw@qq.com.</p>
+            <p>For business inquiries, partnerships, or support, reach us at nnzenw@126.com.</p>
           </div>
         </div>
       </div>

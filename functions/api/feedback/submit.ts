@@ -48,7 +48,7 @@ export async function onRequest(context: { request: Request; env: Env }) {
       },
       body: JSON.stringify({
         from: 'ValveSpecs Pro <noreply@tradesxchange.com>',
-        to: ['nnzw@qq.com'],
+        to: ['nnzenw@126.com'],
         subject: `[Feedback] ${escapeHtml(subject || 'New Feedback from Website')}`,
         html: `
           <h2>New Website Feedback</h2>

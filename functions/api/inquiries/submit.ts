@@ -136,7 +136,7 @@ export async function onRequest(context: { request: Request; env: Env }) {
         },
         body: JSON.stringify({
           from: 'ValveSpecs Pro <noreply@tradesxchange.com>',
-          to: ['nnzw@qq.com'],
+          to: ['nnzenw@126.com'],
           subject: `New Inquiry: ${escapeHtml(brandName || 'Unknown Brand')} - ${escapeHtml(valveType || 'N/A')}`,
           html: `
             <h2>New Valve Inquiry Received</h2>
